@@ -63,7 +63,7 @@ public class YouTubeController {
 		model.addAttribute("youtubeSearchCriteria", youtubeSearchCriteria);
 
 		// get out
-		return "showYoutubeResults";
+		return "youtube";
 	}
 
 	// redirect to demo if user hits the root

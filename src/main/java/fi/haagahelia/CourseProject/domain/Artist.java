@@ -10,19 +10,19 @@ public class Artist {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
-	private String firstName, lastName, country, youtubeChannel;
-	private int age;
+	private String firstName, lastName, country, youtubeChannel, birthday;
 
 	public Artist() {
 	}
 
-	public Artist(String firstName, String lastName, String country, String youtubeChannel, int age) {
+	public Artist(String firstName, String lastName, String country, String youtubeChannel, String birthday) {
 		super();
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.country = country;
 		this.youtubeChannel = youtubeChannel;
-		this.age = age;
+
+		this.birthday = birthday;
 	}
 
 	public long getId() {
@@ -65,17 +65,19 @@ public class Artist {
 		this.youtubeChannel = youtubeChannel;
 	}
 
-	public int getAge() {
-		return age;
+	
+
+	public String getBirthday() {
+		return birthday;
 	}
 
-	public void setAge(int age) {
-		this.age = age;
+	public void setBirthday(String birthday) {
+		this.birthday = birthday;
 	}
 
 	@Override
 	public String toString() {
 		return "Artist [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", country=" + country
-				+ ", youtubeChannel=" + youtubeChannel + ", age=" + age + "]";
+				+ ", youtubeChannel=" + youtubeChannel + "]";
 	}
 }

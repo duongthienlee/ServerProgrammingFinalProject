@@ -143,29 +143,24 @@
 			<div class="row">
 
 				<div class="main_portfolio sections">
-					<table class="table">
-						<tr>
-							<th>Name</th>
-							<th>Country</th>
-							<th>Birthday</th>
-							<th>Age</th>
-							<th>Youtube Channel</th>
-							<th></th>
-						</tr>
-						<!-- th:with #calendars get current day minus subtring of birthday(year) to calculate the age -->
-						<tr th:each="artist : ${artists}"
-							th:with="result=${#calendars.format(#calendars.createNow(), 'yyyy')}- ${#strings.substring(artist.birthday,0,4)} ">
-							<td th:text="${artist.firstName} + ' ' + ${artist.lastName}"></td>
-							<td th:text="${artist.country}"></td>
-							<td th:text="${artist.birthday}"></td>
-							<td th:text="${result}"></td>
-							<td><a th:href="@{(${artist.youtubeChannel})}">Click to
-									the channel</a></td>
-							<td><a th:href="@{/delete/{id}(id=${artist.id})}"
-								class="btn-danger btn-xs">Delete</a></td>
-						</tr>
-					</table>
-					<a class="btn btn-primary" href="/addArtist">Add Artist</a>
+					<h1>Add Artist</h1>
+					<div>
+						<form th:object="${artist}" th:action="@{save}" action="#"
+							method="post">
+							<label for="firstName">Firstname</label> 
+							<input type="text" id="fname" th:field="*{firstName}" /> 
+							<label for="lastName">Lastname</label>
+							<input type="text" id="lname" th:field="*{lastName}" /> 
+							<label for="country">Country</label> 
+							<input type="text" th:field="*{country}" />
+							<label for="birthday">Birthday</label> 
+							<input type="date" th:field="*{birthday}" />
+							<label for="youtubeChannel">Youtube Channel</label> 
+							<input type="url" th:field="*{youtubeChannel}" />
+							
+							<input type="submit" value="Save"></input>
+						</form>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -232,7 +227,6 @@
 							</div>
 						</div>
 					</div>
-
 
 
 				</div>

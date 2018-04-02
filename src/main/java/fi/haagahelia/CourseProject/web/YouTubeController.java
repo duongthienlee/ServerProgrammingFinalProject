@@ -8,9 +8,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import fi.haagahelia.CourseProject.domain.Artist;
 import fi.haagahelia.CourseProject.domain.ArtistRepository;
 import fi.haagahelia.CourseProject.domain.YouTubeVideo;
 import fi.haagahelia.CourseProject.domain.YoutubeSearchCriteria;
@@ -108,11 +110,32 @@ public class YouTubeController {
 		return "index";
 	}
 
-	// Controller for CRUD service
+	// Controller for CRUD service Section
+
 	@RequestMapping(value = "/artist")
 	public String artistList(Model model) {
 		model.addAttribute("artists", aRepository.findAll());
 		return "artist";
 	}
 
+	// Add artist
+	@RequestMapping(value = "/addArtist")
+	public String addArtist(Model model) {
+		model.addAttribute("artist", new Artist());
+		return "addArtist";
+	}
+
+	// add book then save book.
+	@RequestMapping("/save")
+	public String saveArtist(Artist artist) {
+		aRepository.save(artist);
+		return "redirect:artist";
+	}
+	// Delete book
+		@RequestMapping(value = "/delete/{id}", method = RequestMethod.GET)
+		public String deleteArtist(@PathVariable("id") Long artistId, Model model) {
+			aRepository.deleteById(artistId);
+			return "redirect:../artist";
+
+		}
 }

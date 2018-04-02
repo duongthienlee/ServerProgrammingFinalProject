@@ -1,6 +1,15 @@
 package fi.haagahelia.CourseProject.domain;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
 public class Artist {
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private long id;
 	private String firstName, lastName, country, youtubeChannel;
 	private int age;
 
@@ -11,6 +20,14 @@ public class Artist {
 		this.country = country;
 		this.youtubeChannel = youtubeChannel;
 		this.age = age;
+	}
+
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
 	}
 
 	public String getFirstName() {
@@ -51,5 +68,11 @@ public class Artist {
 
 	public void setAge(int age) {
 		this.age = age;
+	}
+
+	@Override
+	public String toString() {
+		return "Artist [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", country=" + country
+				+ ", youtubeChannel=" + youtubeChannel + ", age=" + age + "]";
 	}
 }

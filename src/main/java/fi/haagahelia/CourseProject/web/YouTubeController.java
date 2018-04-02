@@ -11,6 +11,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import fi.haagahelia.CourseProject.domain.ArtistRepository;
 import fi.haagahelia.CourseProject.domain.YouTubeVideo;
 import fi.haagahelia.CourseProject.domain.YoutubeSearchCriteria;
 import fi.haagahelia.CourseProject.service.YouTubeService;
@@ -20,8 +21,10 @@ public class YouTubeController {
 
 	@Autowired
 	private YouTubeService youtubeService;
-	
-		
+
+	@Autowired
+	private ArtistRepository aRepository;
+
 	// starting page for YouTube api demo
 	@RequestMapping(value = "/youtube", method = RequestMethod.GET)
 	public String youtubeDemo(Model model) {
@@ -67,35 +70,49 @@ public class YouTubeController {
 	public String home(Model model) {
 		return "redirect:index";
 	}
+
 	// redirect to specific section on navbar
 	@RequestMapping("/home")
 	public String homeSection(Model model) {
 		return "redirect:index#home";
 	}
+
 	@RequestMapping("/service")
 	public String serviceSection(Model model) {
 		return "redirect:index#service";
 	}
+
 	@RequestMapping("/lessons")
 	public String lessonsSection(Model model) {
 		return "redirect:index#lessons";
 	}
+
 	@RequestMapping("/portfolio")
 	public String portfolioSection(Model model) {
 		return "redirect:index#portfolio";
 	}
+
 	@RequestMapping("/blog")
 	public String blogSection(Model model) {
 		return "redirect:index#blog";
-	}@RequestMapping("/contact")
+	}
+
+	@RequestMapping("/contact")
 	public String contactSection(Model model) {
 		return "redirect:index#contact";
 	}
-	
+
 	// Display index
-		@RequestMapping(value = "/index")
-		public String HomePage() {
-			return "index";
-		}
-		
+	@RequestMapping(value = "/index")
+	public String HomePage() {
+		return "index";
+	}
+
+	// Controller for CRUD service
+	@RequestMapping(value = "/artist")
+	public String artistList(Model model) {
+		model.addAttribute("artist", aRepository.findAll());
+		return "artist";
+	}
+
 }

@@ -127,11 +127,10 @@ $(document).on('click','.navbar-collapse.in',function(e) {
     }
 });
 
-$(document).ready(function() {
-	// get current URL path and assign 'active' class
-	var pathname = window.location.pathname;
-	console.log(pathname);
-	$('.nav > li > a[href="#'+pathname+'"]').parent().addClass('active');
-})
+var selector = '.nav li a';
 
+$(selector).on('click', function(){
+    $(selector).removeClass('active');
+    $(this).addClass('active');
+});
 

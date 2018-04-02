@@ -1,3 +1,4 @@
+
 <!doctype html>
 <!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
@@ -90,104 +91,54 @@
 	</nav>
 
 
-
-	<section id="home" class="home text-right">
-		<div class="overlay">
-			<div class="container">
-				<div class="row">
-					<div class="col-sm-8 col-sm-offset-4">
-						<div class="main_home_content">
-							<div class="single_home">
-								<div class="main_home wow fadeInUp" data-wow-duration="700ms">
-									<h1>CHECK MY VIDEO</h1>
-									<h1 class="subtitle">Fingerstyle guitar songs</h1>
-
-									<div class="video_play_icon">
-										<a href="https://www.youtube.com/embed/NES_AkLoZCE"><i
-											class="fa fa-play-circle-o"></i></a>
-									</div>
-
-								</div>
-							</div>
-							<div class="single_home">
-								<div class="main_home wow fadeInUp" data-wow-duration="700ms">
-									<h1>CHECK MY VIDEO</h1>
-									<h1 class="subtitle">Fingerstyle guitar songs</h1>
-
-									<div class="video_play_icon">
-										<a href="https://www.youtube.com/embed/_tfj9kisbeDI"><i
-											class="fa fa-play-circle-o"></i></a>
-									</div>
-
-								</div>
-							</div>
-							<div class="single_home">
-								<div class="main_home wow fadeInUp" data-wow-duration="700ms">
-									<h1>CHECK MY VIDEO</h1>
-									<h1 class="subtitle">Fingerstyle guitar songs</h1>
-
-									<div class="video_play_icon">
-										<a href="https://www.youtube.com/embed/_1ay1Zc1bXdwg"><i
-											class="fa fa-play-circle-o"></i></a>
-									</div>
-
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
-
 	<section id="portfolio" class="portfolio">
 		<div class="container">
 			<div class="row">
 				<div class="main_portfolio sections">
-					<div class="head_title text-center">
-						<h2>OUR SEARCHING TOOL</h2>
-						<div class="separator"></div>
-						<p>Just type the name of your favorite guitarist or anything
-							between 5-64 characters. 5 videos related will be queried from
-							Youtube .</p>
+					<div class="container">
 
-						<form id="employeeForm" th:action="@{/youtube}"
-							th:object="${youtubeSearchCriteria}" method="POST">
-							<div class="form-body">
+						<br> <br> <br> <br> <br>
+						<div class="col-sm-8 col-sm-offset-1 ">
+							<span>YouTube Search Results</span>
+							<div>
+								<span th:text="${numberOfVideos}"></span> videos match "<span
+									th:text="${youtubeSearchCriteria.queryTerm}"></span>"
+							</div>
+							<div>
 								<div>
-									<div class="mt-element-ribbon bg-grey-steel">
-										<div class="ribbon ribbon-color-success uppercase">Search
-											Criteria</div>
-										<p class="ribbon-content">Please enter a keyword or phrase
-											to search for.</p>
-									</div>
+									<h3>Videos</h3>
 								</div>
-
-								<div class="form-group"
-									th:classappend="${#fields.hasErrors('queryTerm')} ? has-error : ''">
-									<label>Search:</label>
-									<div
-										th:classappend="${#fields.hasErrors('queryTerm')} ? 'input-icon right' : ''">
-										<i th:if="${#fields.hasErrors('queryTerm')}"
-											class="fa fa-exclamation tooltips"
-											data-original-title="please enter a valid search term"
-											data-container="body"></i> <input type="text"
-											class="form-control" maxlength="64" th:field="*{queryTerm}"
-											placeholder="For example: Sung Ha Jung" /> <span
-											th:if="${#fields.hasErrors('queryTerm')}" class="help-block"
-											th:errors="*{queryTerm}"></span>
-									</div>
-								</div>
-
 							</div>
-							<div class="form-actions">
-								<button type="submit" class="btn btn-primary">Search
-									YouTube</button>
+							<div>
+								<ul>
+									<li th:each="video,iterationStatus : ${videos}">
+										<div>
+											<a th:href="${video.url}" target="_blank"> <i></i>
+											</a>
+										</div>
+										<div>
+											<a th:href="${video.url}" target="_blank"> <img alt=""
+												th:src="${video.thumbnailUrl}" />
+											</a>
+										</div>
+										<div th:text="${video.publishDate}"></div>
+										<div>
+											<h4>
+												<a th:href="${video.url}" target="_blank"
+													th:text="${video.title}"></a>
+											</h4>
+											<p th:text="${video.description}"></p>
+										</div>
+									</li>
+								</ul>
 							</div>
-						</form>
+
+							<div style="margin-top: 30px">
+								<button type="button" class="btn btn-primary"
+									onclick="document.location='./youtube'">New Search</button>
+							</div>
+						</div>
 					</div>
-
-
 
 				</div>
 			</div>
@@ -197,7 +148,21 @@
 
 
 
+	<section id="contact" class="contact">
+		<a href="#footer" class="service_border_raund text-center"> <img
+			src="assets/images/mapdownicon.png" alt="" />
+		</a>
+		<div class="ourmaps" id="googleMap">
+			<div class="container">
 
+				<div class="row">
+					<div class="main_maps">
+						<div class="maps"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
 
 
 
@@ -306,7 +271,11 @@
 	<script src="assets/js/jquery.mixitup.min.js"></script>
 	<script src="assets/js/jquery.easing.1.3.js"></script>
 	<script src="assets/js/jquery.slicknav.min.js"></script>
-
+	<!--This is link only for gmaps-->
+	<script src="assets/js/gmap.js"></script>
+	<script async defer
+		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCA0Jk2CzDhTI3SSHso97PeiLmizl9WS3w&callback=initMap"
+		type="text/javascript"></script>
 	<script src="assets/js/main.js"></script>
 	<script src="assets/js/plugins.js"></script>
 

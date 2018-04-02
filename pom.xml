@@ -47,6 +47,9 @@
 			<scope>test</scope>
 		</dependency>
 		
+		
+		<!-- YOUTUBE API DEPENDENCIES SECTION -->
+		
 		<!-- https://mvnrepository.com/artifact/com.google.apis/google-api-services-youtube -->
 		<dependency>
   			  <groupId>com.google.apis</groupId>

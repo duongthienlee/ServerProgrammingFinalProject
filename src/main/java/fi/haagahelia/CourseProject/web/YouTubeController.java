@@ -21,11 +21,7 @@ public class YouTubeController {
 	@Autowired
 	private YouTubeService youtubeService;
 	
-	// Display index
-		@RequestMapping(value = "/index")
-		public String HomePage() {
-			return "index";
-		}
+		
 	// starting page for YouTube api demo
 	@RequestMapping(value = "/youtube", method = RequestMethod.GET)
 	public String youtubeDemo(Model model) {
@@ -63,12 +59,43 @@ public class YouTubeController {
 		model.addAttribute("youtubeSearchCriteria", youtubeSearchCriteria);
 
 		// get out
-		return "youtube";
+		return "youtubeResults";
 	}
 
-	// redirect to demo if user hits the root
+	// redirect to index if user hits the root
 	@RequestMapping("/")
 	public String home(Model model) {
 		return "redirect:index";
 	}
+	// redirect to specific section on navbar
+	@RequestMapping("/home")
+	public String homeSection(Model model) {
+		return "redirect:index#home";
+	}
+	@RequestMapping("/service")
+	public String serviceSection(Model model) {
+		return "redirect:index#service";
+	}
+	@RequestMapping("/lessons")
+	public String lessonsSection(Model model) {
+		return "redirect:index#lessons";
+	}
+	@RequestMapping("/portfolio")
+	public String portfolioSection(Model model) {
+		return "redirect:index#portfolio";
+	}
+	@RequestMapping("/blog")
+	public String blogSection(Model model) {
+		return "redirect:index#blog";
+	}@RequestMapping("/contact")
+	public String contactSection(Model model) {
+		return "redirect:index#contact";
+	}
+	
+	// Display index
+		@RequestMapping(value = "/index")
+		public String HomePage() {
+			return "index";
+		}
+		
 }

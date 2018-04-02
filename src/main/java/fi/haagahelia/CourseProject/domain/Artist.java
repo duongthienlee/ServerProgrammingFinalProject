@@ -13,6 +13,9 @@ public class Artist {
 	private String firstName, lastName, country, youtubeChannel;
 	private int age;
 
+	public Artist() {
+	}
+
 	public Artist(String firstName, String lastName, String country, String youtubeChannel, int age) {
 		super();
 		this.firstName = firstName;

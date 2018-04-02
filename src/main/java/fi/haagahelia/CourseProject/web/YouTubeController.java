@@ -111,7 +111,7 @@ public class YouTubeController {
 	// Controller for CRUD service
 	@RequestMapping(value = "/artist")
 	public String artistList(Model model) {
-		model.addAttribute("artist", aRepository.findAll());
+		model.addAttribute("artists", aRepository.findAll());
 		return "artist";
 	}
 

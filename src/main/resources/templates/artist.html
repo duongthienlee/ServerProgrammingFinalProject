@@ -89,25 +89,74 @@
 			</div>
 		</div>
 	</nav>
+	<section id="home" class="home text-right">
+		<div class="overlay">
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-8 col-sm-offset-4">
+						<div class="main_home_content">
+							<div class="single_home">
+								<div class="main_home wow fadeInUp" data-wow-duration="700ms">
+									<h1>CHECK MY VIDEO</h1>
+									<h1 class="subtitle">Fingerstyle guitar songs</h1>
 
+									<div class="video_play_icon">
+										<a href="https://www.youtube.com/embed/NES_AkLoZCE"><i
+											class="fa fa-play-circle-o"></i></a>
+									</div>
+
+								</div>
+							</div>
+							<div class="single_home">
+								<div class="main_home wow fadeInUp" data-wow-duration="700ms">
+									<h1>CHECK MY VIDEO</h1>
+									<h1 class="subtitle">Fingerstyle guitar songs</h1>
+
+									<div class="video_play_icon">
+										<a href="https://www.youtube.com/embed/_tfj9kisbeDI"><i
+											class="fa fa-play-circle-o"></i></a>
+									</div>
+
+								</div>
+							</div>
+							<div class="single_home">
+								<div class="main_home wow fadeInUp" data-wow-duration="700ms">
+									<h1>CHECK MY VIDEO</h1>
+									<h1 class="subtitle">Fingerstyle guitar songs</h1>
+
+									<div class="video_play_icon">
+										<a href="https://www.youtube.com/embed/_1ay1Zc1bXdwg"><i
+											class="fa fa-play-circle-o"></i></a>
+									</div>
+
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
 
 	<section id="portfolio" class="portfolio">
 		<div class="container">
 			<div class="row">
+			
 				<div class="main_portfolio sections">
 					<table class="table table-striped">
 						<tr>
 							<th>Name</th>
 							<th>Country</th>
 							<th>Age</th>
+							<th>Youtube Channel</th>
 						</tr>
 						<tr th:each="artist : ${artists}">
 							<td th:text="${artist.firstName} + ' ' + ${artist.lastName}"></td>
 							<td th:text="${artist.country}"></td>
 							<td th:text="${artist.age}"></td>
+							<td th:text="${artist.youtubeChannel}"></td>
 						</tr>
 					</table>
-
 				</div>
 			</div>
 		</div>

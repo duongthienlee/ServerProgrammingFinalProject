@@ -1,5 +1,9 @@
 package fi.haagahelia.CourseProject;
 
+import java.time.LocalDate;
+import java.time.ZoneId;
+import java.util.Date;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.CommandLineRunner;
@@ -21,7 +25,12 @@ public class CourseProjectApplication {
 	public CommandLineRunner demo(ArtistRepository aRepository) {
 		return (args) -> {
 			log.info("save artists");
-			aRepository.save(new Artist("firstName", "lastName", "country", "youtubeChannel", 32));
+			//Get current Year for calculating age.
+			Date date = new Date();
+			LocalDate localDate = date.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+			int year  = localDate.getYear();
+			
+			aRepository.save(new Artist("Ed", "Sheeran", "England", "https://www.youtube.com/channel/UC0C-w0YjGpqDXGB8IHb662A", year-1991));
 			log.info("fetch all books");
 			for (Artist artist : aRepository.findAll()) {
 				log.info(artist.toString());

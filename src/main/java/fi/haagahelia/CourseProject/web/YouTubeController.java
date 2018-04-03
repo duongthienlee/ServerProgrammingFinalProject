@@ -131,11 +131,21 @@ public class YouTubeController {
 		aRepository.save(artist);
 		return "redirect:artist";
 	}
-	// Delete book
-		@RequestMapping(value = "/delete/{id}", method = RequestMethod.GET)
-		public String deleteArtist(@PathVariable("id") Long artistId, Model model) {
-			aRepository.deleteById(artistId);
-			return "redirect:../artist";
 
-		}
+	// Delete book
+	@RequestMapping(value = "/delete/{id}", method = RequestMethod.GET)
+	public String deleteArtist(@PathVariable("id") Long artistId, Model model) {
+		aRepository.deleteById(artistId);
+		return "redirect:../artist";
+
+	}
+
+	// Edit book
+	@RequestMapping(value = "/edit{id}")
+	public String findBook(@PathVariable("id") Long artistid, Model model) {
+		model.addAttribute("artist", aRepository.findById(artistid));
+		return "editArtist";
+
+	}
+
 }

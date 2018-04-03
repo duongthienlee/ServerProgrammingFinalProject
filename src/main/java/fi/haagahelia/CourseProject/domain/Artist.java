@@ -1,9 +1,13 @@
 package fi.haagahelia.CourseProject.domain;
 
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Artist {
@@ -11,6 +15,9 @@ public class Artist {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
 	private String firstName, lastName, country, youtubeChannel, birthday;
+
+	@OneToMany(cascade = CascadeType.ALL, mappedBy = "artist")
+	private List<Tab> tabs;
 
 	public Artist() {
 	}
@@ -21,7 +28,6 @@ public class Artist {
 		this.lastName = lastName;
 		this.country = country;
 		this.youtubeChannel = youtubeChannel;
-
 		this.birthday = birthday;
 	}
 
@@ -65,8 +71,6 @@ public class Artist {
 		this.youtubeChannel = youtubeChannel;
 	}
 
-	
-
 	public String getBirthday() {
 		return birthday;
 	}
@@ -75,9 +79,18 @@ public class Artist {
 		this.birthday = birthday;
 	}
 
+	public List<Tab> getTabs() {
+		return tabs;
+	}
+
+	public void setTabs(List<Tab> tabs) {
+		this.tabs = tabs;
+	}
+
 	@Override
 	public String toString() {
-		return "Artist [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", country=" + country
-				+ ", youtubeChannel=" + youtubeChannel + "]";
+		return "Artist [artistId=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", country=" + country
+				+ ", youtubeChannel=" + youtubeChannel + ", birthday=" + birthday + "]";
 	}
+
 }

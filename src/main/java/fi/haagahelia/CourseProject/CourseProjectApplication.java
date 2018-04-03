@@ -8,6 +8,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import fi.haagahelia.CourseProject.domain.Artist;
 import fi.haagahelia.CourseProject.domain.ArtistRepository;
+import fi.haagahelia.CourseProject.domain.Tab;
+import fi.haagahelia.CourseProject.domain.TabRepository;
 
 @SpringBootApplication
 public class CourseProjectApplication {
@@ -18,42 +20,43 @@ public class CourseProjectApplication {
 	}
 
 	@Bean
-	public CommandLineRunner demo(ArtistRepository aRepository) {
+	public CommandLineRunner demo(ArtistRepository aRepository, TabRepository tRepository) {
 		return (args) -> {
 			log.info("save artists");
+			aRepository.save(new Artist("Ed", "Sheeran", "England",
+					"https://www.youtube.com/channel/UC0C-w0YjGpqDXGB8IHb662A", "1991-02-17"));
+			aRepository.save(new Artist("Sung Ha", "Jung", "Korea",
+					"https://www.youtube.com/channel/UCjWRi2qaGtKjQyoQLc4OGkw", "1996-09-02"));
+			aRepository.save(new Artist("Ewan", "Dobson", "Canada",
+					"https://www.youtube.com/channel/UC6SvF0tR6n5al0-3ieIxWcQ", "1981-09-09"));
+			aRepository.save(new Artist("Andy", "McKee", "USA",
+					"https://www.youtube.com/channel/UCMJecdKUslHToOEpeuRGwXg", "1979-04-04"));
+			aRepository.save(
+					new Artist("Don", "Ross", "Canada", "https://www.youtube.com/watch?v=YkidVP0AcQ8", "1960-11-19"));
+			aRepository.save(new Artist("Thomas", "Leeb", "Austria",
+					"https://www.youtube.com/channel/UCSOA2hdMFzzGNbvqFJPxCRA", "1977-09-14"));
+			aRepository.save(new Artist("Estas", "Tonne", "Ukraina",
+					"https://www.youtube.com/channel/UCTsnTp-g5Rj3VY7Tlm2XQ6A", "1975-04-24"));
+			aRepository.save(new Artist("Gabriella", "Quevedo", "Sweden",
+					"https://www.youtube.com/channel/UCbK6S8jFtYZ3UnPhWRIJ0bA", "1997-01-12"));
+			aRepository.save(new Artist("Ed", "Sheeran", "England",
+					"https://www.youtube.com/channel/UC0C-w0YjGpqDXGB8IHb662A", "1991-02-17"));
+			aRepository.save(new Artist("Sung Ha", "Jung", "Korea",
+					"https://www.youtube.com/channel/UCjWRi2qaGtKjQyoQLc4OGkw", "1996-09-02"));
+			aRepository.save(new Artist("Ewan", "Dobson", "Canada",
+					"https://www.youtube.com/channel/UC6SvF0tR6n5al0-3ieIxWcQ", "1981-09-09"));
+			aRepository.save(new Artist("Andy", "McKee", "USA",
+					"https://www.youtube.com/channel/UCMJecdKUslHToOEpeuRGwXg", "1979-04-04"));
+			aRepository.save(
+					new Artist("Don", "Ross", "Canada", "https://www.youtube.com/watch?v=YkidVP0AcQ8", "1960-11-19"));
+			aRepository.save(new Artist("Thomas", "Leeb", "Austria",
+					"https://www.youtube.com/channel/UCSOA2hdMFzzGNbvqFJPxCRA", "1977-09-14"));
+			aRepository.save(new Artist("Estas", "Tonne", "Ukraina",
+					"https://www.youtube.com/channel/UCTsnTp-g5Rj3VY7Tlm2XQ6A", "1975-04-24"));
+			aRepository.save(new Artist("Gabriella", "Quevedo", "Sweden",
+					"https://www.youtube.com/channel/UCbK6S8jFtYZ3UnPhWRIJ0bA", "1997-01-12"));
 
-			aRepository.save(new Artist("Ed", "Sheeran", "England",
-					"https://www.youtube.com/channel/UC0C-w0YjGpqDXGB8IHb662A", "1991-02-17"));
-			aRepository.save(new Artist("Sung Ha", "Jung", "Korea",
-					"https://www.youtube.com/channel/UCjWRi2qaGtKjQyoQLc4OGkw", "1996-09-02"));
-			aRepository.save(new Artist("Ewan", "Dobson", "Canada",
-					"https://www.youtube.com/channel/UC6SvF0tR6n5al0-3ieIxWcQ", "1981-09-09"));
-			aRepository.save(new Artist("Andy", "McKee", "USA",
-					"https://www.youtube.com/channel/UCMJecdKUslHToOEpeuRGwXg", "1979-04-04"));
-			aRepository.save(
-					new Artist("Don", "Ross", "Canada", "https://www.youtube.com/watch?v=YkidVP0AcQ8", "1960-11-19"));
-			aRepository.save(new Artist("Thomas", "Leeb", "Austria",
-					"https://www.youtube.com/channel/UCSOA2hdMFzzGNbvqFJPxCRA", "1977-09-14"));
-			aRepository.save(new Artist("Estas", "Tonne", "Ukraina",
-					"https://www.youtube.com/channel/UCTsnTp-g5Rj3VY7Tlm2XQ6A", "1975-04-24"));
-			aRepository.save(new Artist("Gabriella", "Quevedo", "Sweden",
-					"https://www.youtube.com/channel/UCbK6S8jFtYZ3UnPhWRIJ0bA", "1997-01-12"));
-			aRepository.save(new Artist("Ed", "Sheeran", "England",
-					"https://www.youtube.com/channel/UC0C-w0YjGpqDXGB8IHb662A", "1991-02-17"));
-			aRepository.save(new Artist("Sung Ha", "Jung", "Korea",
-					"https://www.youtube.com/channel/UCjWRi2qaGtKjQyoQLc4OGkw", "1996-09-02"));
-			aRepository.save(new Artist("Ewan", "Dobson", "Canada",
-					"https://www.youtube.com/channel/UC6SvF0tR6n5al0-3ieIxWcQ", "1981-09-09"));
-			aRepository.save(new Artist("Andy", "McKee", "USA",
-					"https://www.youtube.com/channel/UCMJecdKUslHToOEpeuRGwXg", "1979-04-04"));
-			aRepository.save(
-					new Artist("Don", "Ross", "Canada", "https://www.youtube.com/watch?v=YkidVP0AcQ8", "1960-11-19"));
-			aRepository.save(new Artist("Thomas", "Leeb", "Austria",
-					"https://www.youtube.com/channel/UCSOA2hdMFzzGNbvqFJPxCRA", "1977-09-14"));
-			aRepository.save(new Artist("Estas", "Tonne", "Ukraina",
-					"https://www.youtube.com/channel/UCTsnTp-g5Rj3VY7Tlm2XQ6A", "1975-04-24"));
-			aRepository.save(new Artist("Gabriella", "Quevedo", "Sweden",
-					"https://www.youtube.com/channel/UCbK6S8jFtYZ3UnPhWRIJ0bA", "1997-01-12"));
+			tRepository.save(new Tab(aRepository.findByFirstName("Ed").get(0), "song", 6, "type", 132));
 
 			log.info("fetch all books");
 			for (Artist artist : aRepository.findAll()) {

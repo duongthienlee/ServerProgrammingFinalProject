@@ -59,7 +59,11 @@
 			<artifactId>h2</artifactId>
 		</dependency>
 		
-		
+		<!-- Data Rest -->
+		<dependency>
+  			<groupId>org.springframework.data</groupId>
+ 			 <artifactId>spring-data-rest-webmvc</artifactId>			
+		</dependency>
 		
 		
 		

@@ -155,6 +155,7 @@ public class TabController {
 		return "editTab";
 
 	}
+	// Filter tab
 
 	// Display artists
 	@RequestMapping(value = "/artist")
@@ -192,5 +193,7 @@ public class TabController {
 		return "editArtist";
 
 	}
+	
+	//
 
 }

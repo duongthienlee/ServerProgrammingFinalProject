@@ -72,9 +72,11 @@
 		<div class="container">
 			<div class="row">
 				<div class="main_portfolio sections">
+					<div class="head_title text-center">
+						<h2>Explore Tab catalog</h2>
+					</div>
 					<table class="table">
 						<tr>
-
 							<th>Song</th>
 							<th>Artist</th>
 							<th>Rating</th>
@@ -85,8 +87,10 @@
 						</tr>
 
 						<tr th:each="tab : ${tabs}">
-							<td th:text="${tab.song}"></td>
-							<td th:text="${tab.artist.firstName} +${tab.artist.lastName} "></td>
+							<td><a th:href="@{(${tab.url})}"><span
+									th:text="${tab.song}"></span></a></td>
+							<td
+								th:text="${tab.artist.firstName} + ' ' +${tab.artist.lastName} "></td>
 							<td th:text="${tab.rating}"></td>
 							<td th:text="${tab.type}"></td>
 							<td th:text="${tab.downloaded}"></td>

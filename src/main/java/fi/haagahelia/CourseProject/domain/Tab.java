@@ -7,31 +7,34 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
+import net.minidev.json.annotate.JsonIgnore;
+
 @Entity
 public class Tab {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long ID;
-	private String song, type;
+	private String song, type, url;
 	private int rating, downloaded;
 
 	@ManyToOne
+	@JsonIgnore
 	@JoinColumn(name = "artistId")
 	private Artist artist;
 
 	public Tab() {
 	}
 
-	public Tab(Artist artist, String song, int rating, String type, int downloaded) {
+	public Tab(Artist artist, String song, int rating, String type, int downloaded, String url) {
 		super();
 		this.artist = artist;
 		this.song = song;
 		this.rating = rating;
 		this.type = type;
 		this.downloaded = downloaded;
+		this.url = url;
 	}
 
-	
 	public long getID() {
 		return ID;
 	}
@@ -80,10 +83,18 @@ public class Tab {
 		this.downloaded = downloaded;
 	}
 
+	public String getUrl() {
+		return url;
+	}
+
+	public void setUrl(String url) {
+		this.url = url;
+	}
+
 	@Override
 	public String toString() {
-		return "Tab [ID=" + ID + ", song=" + song + ", rating=" + rating + ", type=" + type + ", downloaded="
-				+ downloaded + ", artist=" + artist + "]";
+		return "Tab [ID=" + ID + ", song=" + song + ", type=" + type + ", url=" + url + ", rating=" + rating
+				+ ", downloaded=" + downloaded + ", artist=" + artist + "]";
 	}
 
 }

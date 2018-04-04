@@ -40,9 +40,30 @@ public class CourseProjectApplication {
 					"https://www.youtube.com/channel/UCTsnTp-g5Rj3VY7Tlm2XQ6A", "1975-04-24"));
 			aRepository.save(new Artist("Gabriella", "Quevedo", "Sweden",
 					"https://www.youtube.com/channel/UCbK6S8jFtYZ3UnPhWRIJ0bA", "1997-01-12"));
-			
+			aRepository.save(new Artist("Elvis", "Presley", "USA", "https://www.youtube.com/user/ElvisPresleyVEVO",
+					"1935-01-08"));
+
 			log2.info("save tab");
-			tRepository.save(new Tab(aRepository.findByFirstName("Ed").get(0), "song", 6, "type", 132));
+			tRepository.save(new Tab(aRepository.findByFirstName("Ed").get(0), "Perfect", 5, "Chords", 12,
+					"https://tabs.ultimate-guitar.com/tab/ed_sheeran/perfect_chords_1956589"));
+			tRepository.save(new Tab(aRepository.findByFirstName("Ed").get(0), "All About It", 5, "Chords", 12,
+					"https://tabs.ultimate-guitar.com/tab/hoodie_allen/all_about_it_chords_1677518"));
+			tRepository.save(new Tab(aRepository.findByFirstName("Ed").get(0), "Be My Forever", 4, "Chords", 34,
+					"https://tabs.ultimate-guitar.com/tab/christina_perri/be_my_forever_chords_1464118"));
+			tRepository.save(new Tab(aRepository.findByFirstName("Ed").get(0), "Dark Times", 5, "Chords", 132,
+					"https://tabs.ultimate-guitar.com/tab/the_weeknd/dark_times_chords_1762376"));
+			tRepository.save(new Tab(aRepository.findByFirstName("Ed").get(0), "Everything has changed", 3, "Tab", 56,
+					"https://tabs.ultimate-guitar.com/tab/taylor_swift/everything_has_changed_tabs_1190062"));
+			tRepository.save(new Tab(aRepository.findByFirstName("Elvis").get(0), "Amazing Grace", 5, "Tab", 123,
+					"https://tabs.ultimate-guitar.com/tab/elvis_presley/amazing_grace_tabs_985635"));
+			tRepository.save(new Tab(aRepository.findByFirstName("Sung Ha").get(0), "Havana", 5, "Tab", 1235,
+					"https://tabs.ultimate-guitar.com/tab/sungha_jung/havana_tabs_2330583"));
+			tRepository.save(new Tab(aRepository.findByFirstName("Sung Ha").get(0), "Haru Haru", 5, "Tab", 1223,
+					"https://tabs.ultimate-guitar.com/tab/sungha_jung/haru_haru_guitar_pro_1041255"));
+			tRepository.save(new Tab(aRepository.findByFirstName("Sung Ha").get(0), "A Thousand Years", 5, "Tab", 1231,
+					"https://tabs.ultimate-guitar.com/tab/sungha_jung/a_thousand_years_tabs_1241122"));
+			tRepository.save(new Tab(aRepository.findByFirstName("Sung Ha").get(0), "Beat It", 5, "Tab", 1211,
+					"https://tabs.ultimate-guitar.com/tab/sungha_jung/beat_it_tabs_1189438"));
 
 			log.info("fetch all artists");
 			for (Artist artist : aRepository.findAll()) {

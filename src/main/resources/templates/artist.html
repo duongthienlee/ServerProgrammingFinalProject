@@ -91,10 +91,10 @@
 							<td th:text="${result}"></td>
 							<td><a th:href="@{(${artist.youtubeChannel})}">Click to
 									the channel</a></td>
-							<td><a th:href="@{/delete/{id}(id=${artist.id})}"
+							 <td><a th:href="@{/deleteArtist/{id}(id=${artist.artistId})}"
 								class="btn-danger btn-xs">Delete</a></td>
 							<td><a class="btn-danger btn-xs"
-								th:href="@{/edit{id}(id=${artist.id})}">Edit</a></td>
+								th:href="@{/editArtist{id}(id=${artist.artistId})}">Edit</a></td> 
 						</tr>
 					</table>
 					<a class="btn btn-primary" href="/addArtist">Add Artist</a>

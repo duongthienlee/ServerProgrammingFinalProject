@@ -19,7 +19,7 @@
 		<div class="container">
 			<div class="nav-top clearfix">
 				<div class="logo">
-					<a href="/index" class="navbar-brand"><img
+					<a href="" class="navbar-brand"><img
 						src="assets/images/logo.png" alt="Logo" /></a>
 				</div>
 
@@ -70,34 +70,26 @@
 			<div class="row">
 				<div class="main_portfolio sections">
 					<div class="head_title text-center">
-						<h2>Add Artist</h2>
+						<h2>Edit Tab</h2>
 						<div>
-							<form class="form-inline" th:object="${artist}" th:action="@{saveArtist}" action="#"
+							<form th:object="${tab}" th:action="@{saveTab}" action="#"
 								method="post">
-								<div class="form-group">
-									<label for="firstName">Firstname</label> <input type="text"
-										id="fname" th:field="*{firstName}" />
-								</div>
-								<div class="form-group">
-									<label for="lastName">Lastname</label> <input type="text"
-										id="lname" th:field="*{lastName}" />
-								</div>
-								<div class="form-group">
-									<label for="country">Country</label> <input type="text"
-										th:field="*{country}" />
-								</div>
-								<div class="form-group">
-									<label for="birthday">Birthday</label> <input type="date"
-										th:field="*{birthday}" />
-								</div>
-								<div class="form-group">
-									<label for="youtubeChannel">Youtube URL</label> <input
-										type="url" th:field="*{youtubeChannel}" />
-								</div>
-
+								<input type="hidden" id="id" th:field="*{ID}" /> 
+								
+								<label for="song">Song</label> 
+								<input type="text" id="song" th:field="*{song}" /> 
+								<input type="hidden" id="artistId" th:field="*{artist.artistId}" />
+								<label for="rating">Rating</label> 
+								<input type="number" id="rating" th:field="*{rating}" />
+								
+								<label for="rating">Type</label> 
+								<input type="text" id="type" th:field="*{type}" />
+								
+								<label for="downloaded">Downloaded</label> 
+								<input type="number" id="downloaded" th:field="*{downloaded}" />
+								
 								<input type="submit" value="Save"></input>
 							</form>
-
 						</div>
 					</div>
 				</div>

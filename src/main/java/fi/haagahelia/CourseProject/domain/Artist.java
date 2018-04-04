@@ -13,7 +13,7 @@ import javax.persistence.OneToMany;
 public class Artist {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private long id;
+	private long artistId;
 	private String firstName, lastName, country, youtubeChannel, birthday;
 
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "artist")
@@ -31,12 +31,14 @@ public class Artist {
 		this.birthday = birthday;
 	}
 
-	public long getId() {
-		return id;
+	
+
+	public long getArtistId() {
+		return artistId;
 	}
 
-	public void setId(long id) {
-		this.id = id;
+	public void setArtistId(long artistId) {
+		this.artistId = artistId;
 	}
 
 	public String getFirstName() {
@@ -89,7 +91,7 @@ public class Artist {
 
 	@Override
 	public String toString() {
-		return "Artist [artistId=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", country=" + country
+		return "Artist [artistId=" + artistId + ", firstName=" + firstName + ", lastName=" + lastName + ", country=" + country
 				+ ", youtubeChannel=" + youtubeChannel + ", birthday=" + birthday + "]";
 	}
 

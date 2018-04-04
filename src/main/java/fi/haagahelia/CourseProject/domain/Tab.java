@@ -11,12 +11,12 @@ import javax.persistence.ManyToOne;
 public class Tab {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private long tabId;
+	private long ID;
 	private String song, type;
 	private int rating, downloaded;
 
 	@ManyToOne
-	@JoinColumn(name = "id")
+	@JoinColumn(name = "artistId")
 	private Artist artist;
 
 	public Tab() {
@@ -31,12 +31,13 @@ public class Tab {
 		this.downloaded = downloaded;
 	}
 
-	public long getId() {
-		return tabId;
+	
+	public long getID() {
+		return ID;
 	}
 
-	public void setId(long tabId) {
-		this.tabId = tabId;
+	public void setID(long iD) {
+		ID = iD;
 	}
 
 	public Artist getArtist() {
@@ -81,7 +82,7 @@ public class Tab {
 
 	@Override
 	public String toString() {
-		return "Tab [tabId=" + tabId + ", song=" + song + ", rating=" + rating + ", type=" + type + ", downloaded="
+		return "Tab [ID=" + ID + ", song=" + song + ", rating=" + rating + ", type=" + type + ", downloaded="
 				+ downloaded + ", artist=" + artist + "]";
 	}
 

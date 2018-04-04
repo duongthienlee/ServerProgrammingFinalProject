@@ -14,12 +14,14 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import fi.haagahelia.CourseProject.domain.Artist;
 import fi.haagahelia.CourseProject.domain.ArtistRepository;
+import fi.haagahelia.CourseProject.domain.Tab;
+import fi.haagahelia.CourseProject.domain.TabRepository;
 import fi.haagahelia.CourseProject.domain.YouTubeVideo;
 import fi.haagahelia.CourseProject.domain.YoutubeSearchCriteria;
 import fi.haagahelia.CourseProject.service.YouTubeService;
 
 @Controller
-public class YouTubeController {
+public class TabController {
 
 	@Autowired
 	private YouTubeService youtubeService;
@@ -27,6 +29,10 @@ public class YouTubeController {
 	@Autowired
 	private ArtistRepository aRepository;
 
+	@Autowired
+	private TabRepository tRepository;
+
+	// ------ Youtube API Controllers------
 	// starting page for YouTube api demo
 	@RequestMapping(value = "/youtube", method = RequestMethod.GET)
 	public String youtubeDemo(Model model) {
@@ -67,10 +73,17 @@ public class YouTubeController {
 		return "youtubeResults";
 	}
 
+	// ------ RequestMapping ------
 	// redirect to index if user hits the root
 	@RequestMapping("/")
 	public String home(Model model) {
 		return "redirect:index";
+	}
+
+	// Display index
+	@RequestMapping(value = "/index")
+	public String HomePage() {
+		return "index";
 	}
 
 	// redirect to specific section on navbar
@@ -104,14 +117,46 @@ public class YouTubeController {
 		return "redirect:index#contact";
 	}
 
-	// Display index
-	@RequestMapping(value = "/index")
-	public String HomePage() {
-		return "index";
+	// -------CRUD service Section-----------
+	// Display tabs
+	@RequestMapping(value = "/tab")
+	public String tabList(Model model) {
+		model.addAttribute("tabs", tRepository.findAll());
+		return "tab";
 	}
 
-	// Controller for CRUD service Section
+	// Add tab
+	@RequestMapping(value = "/addTab")
+	public String addTab(Model model) {
+		model.addAttribute("tab", new Tab());
+		model.addAttribute("artists", aRepository.findAll());
+		return "addTab";
+	}
 
+	// Save tab
+	@RequestMapping("/saveTab")
+	public String saveTab(Tab tab) {
+		tRepository.save(tab);
+		return "redirect:tab";
+	}
+
+	// Delete tab
+	@RequestMapping(value = "/deleteTab/{id}", method = RequestMethod.GET)
+	public String deleteTab(@PathVariable("id") Long tabId, Model model) {
+		tRepository.deleteById(tabId);
+		return "redirect:../tab";
+
+	}
+
+	// Edit tab
+	@RequestMapping(value = "/editTab{id}")
+	public String editTab(@PathVariable("id") Long tabId, Model model) {
+		model.addAttribute("tab", tRepository.findById(tabId));
+		return "editTab";
+
+	}
+
+	// Display artists
 	@RequestMapping(value = "/artist")
 	public String artistList(Model model) {
 		model.addAttribute("artists", aRepository.findAll());
@@ -125,25 +170,25 @@ public class YouTubeController {
 		return "addArtist";
 	}
 
-	// add book then save book.
-	@RequestMapping("/save")
+	// add artist then save artist.
+	@RequestMapping("/saveArtist")
 	public String saveArtist(Artist artist) {
 		aRepository.save(artist);
 		return "redirect:artist";
 	}
 
-	// Delete book
-	@RequestMapping(value = "/delete/{id}", method = RequestMethod.GET)
+	// Delete artist
+	@RequestMapping(value = "/deleteArtist/{id}", method = RequestMethod.GET)
 	public String deleteArtist(@PathVariable("id") Long artistId, Model model) {
 		aRepository.deleteById(artistId);
 		return "redirect:../artist";
 
 	}
 
-	// Edit book
-	@RequestMapping(value = "/edit{id}")
-	public String findBook(@PathVariable("id") Long artistid, Model model) {
-		model.addAttribute("artist", aRepository.findById(artistid));
+	// Edit artist
+	@RequestMapping(value = "/editArtist{id}")
+	public String editArtist(@PathVariable("id") Long artistId, Model model) {
+		model.addAttribute("artist", aRepository.findById(artistId));
 		return "editArtist";
 
 	}

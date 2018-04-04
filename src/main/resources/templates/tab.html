@@ -19,7 +19,7 @@
 		<div class="container">
 			<div class="nav-top clearfix">
 				<div class="logo">
-					<a href="/index" class="navbar-brand"><img
+					<a href="" class="navbar-brand"><img
 						src="assets/images/logo.png" alt="Logo" /></a>
 				</div>
 
@@ -64,48 +64,45 @@
 			</div>
 		</div>
 	</nav>
+
+	<!--Home fragment-->
 	<object th:replace="fragments/homesection :: section"></object>
+
 	<section id="portfolio" class="portfolio">
 		<div class="container">
 			<div class="row">
 				<div class="main_portfolio sections">
-					<div class="head_title text-center">
-						<h2>Add Artist</h2>
-						<div>
-							<form class="form-inline" th:object="${artist}" th:action="@{saveArtist}" action="#"
-								method="post">
-								<div class="form-group">
-									<label for="firstName">Firstname</label> <input type="text"
-										id="fname" th:field="*{firstName}" />
-								</div>
-								<div class="form-group">
-									<label for="lastName">Lastname</label> <input type="text"
-										id="lname" th:field="*{lastName}" />
-								</div>
-								<div class="form-group">
-									<label for="country">Country</label> <input type="text"
-										th:field="*{country}" />
-								</div>
-								<div class="form-group">
-									<label for="birthday">Birthday</label> <input type="date"
-										th:field="*{birthday}" />
-								</div>
-								<div class="form-group">
-									<label for="youtubeChannel">Youtube URL</label> <input
-										type="url" th:field="*{youtubeChannel}" />
-								</div>
+					<table class="table">
+						<tr>
 
-								<input type="submit" value="Save"></input>
-							</form>
+							<th>Song</th>
+							<th>Artist</th>
+							<th>Rating</th>
+							<th>Type</th>
+							<th>Number of downloaded</th>
+							<th></th>
+							<th></th>
+						</tr>
 
-						</div>
-					</div>
+						<tr th:each="tab : ${tabs}">
+							<td th:text="${tab.song}"></td>
+							<td th:text="${tab.artist.firstName} +${tab.artist.lastName} "></td>
+							<td th:text="${tab.rating}"></td>
+							<td th:text="${tab.type}"></td>
+							<td th:text="${tab.downloaded}"></td>
+							<td><a class="btn-danger btn-xs"
+								th:href="@{/editTab{id}(id=${tab.ID})}">Edit</a></td>
+							<td><a th:href="@{/deleteTab/{id}(id=${tab.ID})}"
+								class="btn-xs btn-danger">Delete</a></td>
+						</tr>
+					</table>
+					<a class="btn btn-primary" href="/addTab">Add Tab</a>
 				</div>
 			</div>
 		</div>
 	</section>
 
-	<!-- Footer fragments -->
+	<!--Footer fragments-->
 	<object th:replace="fragments/footerwidget :: section"></object>
 	<object th:replace="fragments/footer :: footer"></object>
 

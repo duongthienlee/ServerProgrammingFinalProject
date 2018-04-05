@@ -18,6 +18,8 @@ public class Artist {
 
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "artist")
 	private List<Tab> tabs;
+	
+	
 
 	public Artist() {
 	}

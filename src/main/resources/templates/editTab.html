@@ -77,8 +77,14 @@
 								<input type="hidden" id="id" th:field="*{ID}" /> 
 								
 								<label for="song">Song</label> 
-								<input type="text" id="song" th:field="*{song}" /> 
-								<input type="hidden" id="artistId" th:field="*{artist.artistId}" />
+								<input type="text" id="song" th:field="*{song}" />
+								<label for="artist">Artist</label> 
+								<select id="artistList" th:field="*{artist}">
+									<option th:each="artist: ${artists}"
+										th:value="${artist.artistId}"
+										th:text="${artist.firstName} + ' ' + ${artist.lastName}">
+									</option>
+								</select>
 								<label for="rating">Rating</label> 
 								<input type="number" id="rating" th:field="*{rating}" />
 								

@@ -152,10 +152,10 @@ public class TabController {
 	@RequestMapping(value = "/editTab{id}")
 	public String editTab(@PathVariable("id") Long tabId, Model model) {
 		model.addAttribute("tab", tRepository.findById(tabId));
+		model.addAttribute("artists", aRepository.findAll());
 		return "editTab";
 
 	}
-	// Filter tab
 
 	// Display artists
 	@RequestMapping(value = "/artist")
@@ -193,7 +193,5 @@ public class TabController {
 		return "editArtist";
 
 	}
-	
-	//
 
 }

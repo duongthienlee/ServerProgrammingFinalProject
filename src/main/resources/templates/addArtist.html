@@ -14,56 +14,9 @@
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
 
-	<!--Home page style-->
-	<nav>
-		<div class="container">
-			<div class="nav-top clearfix">
-				<div class="logo">
-					<a href="/index" class="navbar-brand"><img
-						src="assets/images/logo.png" alt="Logo" /></a>
-				</div>
-
-				<div class="head_top_social pull-right">
-					<ul class="list-inline">
-						<li><a href=""><i class="fa fa-skype"></i>Skype
-								groups(Not available)</a></li>
-						<li><a href=""><i class="fa fa-phone"></i>0442310789</a></li>
-						<li class="top_socail"><a
-							href="https://www.youtube.com/user/duongthienlee1/videos?view_as=subscriber"><i
-								class="fa fa-youtube"></i></a> <a
-							href="https://plus.google.com/u/0/+DuongThienLy"><i
-								class="fa fa-google-plus"></i></a> <a
-							href="https://www.pinterest.com/duongthienl/"><i
-								class="fa fa-pinterest-p"></i></a></li>
-
-					</ul>
-				</div>
-
-				<button class="navbar-toggle" data-target=".navbar-collapse"
-					data-toggle="collapse" type="button">
-					<span class="sr-only">Toggle navigation</span><i class="fa fa-bars"></i>
-				</button>
-
-			</div>
-		</div>
-
-		<div class="main-nav navbar-collapse collapse">
-			<div class="container">
-				<div class="minilogo">
-					<a href="/index" class="navbar-brand"><img
-						src="assets/images/logo2.png" alt="Logo" /></a>
-				</div>
-				<ul class="nav nav-justified">
-					<li><a href="/home">HOME</a></li>
-					<li><a href="/service">ABOUT ME</a></li>
-					<li><a href="/lessons">Guitar source</a></li>
-					<li><a href="/portfolio">PORTFOLIO</a></li>
-					<li><a href="/blog">BLOG</a></li>
-					<li><a href="/contact">CONTACT</a></li>
-				</ul>
-			</div>
-		</div>
-	</nav>
+	<!-- Nav fragment -->
+	<object th:replace="fragments/specialNav :: nav"></object>
+	
 	<object th:replace="fragments/homesection :: section"></object>
 	<section id="portfolio" class="portfolio">
 		<div class="container">

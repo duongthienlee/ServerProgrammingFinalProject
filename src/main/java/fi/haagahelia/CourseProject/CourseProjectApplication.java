@@ -6,10 +6,13 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
+
+import fi.haagahelia.CourseProject.domain.User;
 import fi.haagahelia.CourseProject.domain.Artist;
 import fi.haagahelia.CourseProject.domain.ArtistRepository;
 import fi.haagahelia.CourseProject.domain.Tab;
 import fi.haagahelia.CourseProject.domain.TabRepository;
+import fi.haagahelia.CourseProject.domain.UserRepository;
 
 @SpringBootApplication
 public class CourseProjectApplication {
@@ -21,7 +24,7 @@ public class CourseProjectApplication {
 	}
 
 	@Bean
-	public CommandLineRunner demo(ArtistRepository aRepository, TabRepository tRepository) {
+	public CommandLineRunner demo(ArtistRepository aRepository, TabRepository tRepository, UserRepository uRepository) {
 		return (args) -> {
 			log.info("save artists");
 			aRepository.save(new Artist("Ed", "Sheeran", "England",
@@ -75,6 +78,15 @@ public class CourseProjectApplication {
 			for (Tab tab : tRepository.findAll()) {
 				log.info(tab.toString());
 			}
+
+			// Create users: admin/admin user/user
+			User user1 = new User("user", "$2a$06$3jYRJrg0ghaaypjZ/.g4SethoeA51ph3UD4kZi9oPkeMTpjKU5uo6",
+					"duongthienlee@gmail.com", "USER");
+			User user2 = new User("admin", "$2a$10$0MMwY.IQqpsVc1jC8u7IJ.2rT8b0Cd3b3sfIBGV2zfgnPGtT4r0.C",
+					"thienwinchester@gmail.com", "ADMIN");
+			uRepository.save(user1);
+			uRepository.save(user2);
+
 		};
 	}
 

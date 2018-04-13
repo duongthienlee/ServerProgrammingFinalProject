@@ -1,0 +1,70 @@
+<!doctype html>
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="en" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<!--<![endif]-->
+<head>
+<object th:replace="fragments/head :: head" th:remove="tag"></object>
+</head>
+<body data-spy="scroll" data-target=".navbar-collapse">
+	<!--[if lt IE 8]>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+	<!-- Nav fragment -->
+	<object th:replace="fragments/specialNav :: nav"></object>
+
+	<object th:replace="fragments/homesection :: section"></object>
+	<section id="portfolio" class="portfolio">
+		<div class="container">
+			<div class="row">
+				<div class="main_portfolio sections">
+					<div class="head_title text-center">
+						<div class="col-md-4">
+							<h3 th:inline="text">Welcome
+								[[${#httpServletRequest.remoteUser}]]</h3>
+						</div>
+						<div class="col-md-4" style="padding: 20px 0">
+							<form th:action="@{/logout}" method="post">
+								<input type="submit" value="Sign Out" class="btn btn-danger" />
+							</form>
+						</div>
+						<div th:if="${param.error}">Invalid username and password.</div>
+						<div th:if="${param.logout}">You have been logged out.</div>
+						<form th:action="@{/login}" method="post">
+							<div>
+								<label> User Name : <input type="text" name="username" />
+								</label>
+							</div>
+							<div>
+								<label> Password: <input type="password" name="password" />
+								</label>
+							</div>
+							<div>
+								<input type="submit" value="Sign In" />
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Footer fragments -->
+	<object th:replace="fragments/footerwidget :: section"></object>
+	<object th:replace="fragments/footer :: footer"></object>
+
+	<!-- START SCROLL TO TOP  -->
+
+	<div class="scrollup">
+		<a href="#"><i class="fa fa-chevron-up"></i></a>
+	</div>
+
+	<!--javascript fragment-->
+	<object th:replace="fragments/javascriptfragment :: script"></object>
+</body>
+</html>

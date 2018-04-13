@@ -194,4 +194,10 @@ public class TabController {
 
 	}
 
+	// Login
+	@RequestMapping(value = "/login")
+	public String login() {
+		return "login";
+	}
+
 }

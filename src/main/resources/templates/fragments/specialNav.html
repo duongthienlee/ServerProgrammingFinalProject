@@ -2,8 +2,8 @@
 	<div class="container">
 		<div class="nav-top clearfix">
 			<div class="logo">
-				<a href="/index" class="navbar-brand"><img
-					src="images/logo.png" alt="Logo" /></a>
+				<a href="/index" class="navbar-brand"><img src="images/logo.png"
+					alt="Logo" /></a>
 			</div>
 
 			<div class="head_top_social pull-right">
@@ -19,6 +19,22 @@
 						href="https://www.pinterest.com/duongthienl/"><i
 							class="fa fa-pinterest-p"></i></a></li>
 
+					<!-- Only display Welcome message when user logged in -->
+					<li th:inline="text" sec:authorize="isAuthenticated()">Welcome
+						[[${#httpServletRequest.remoteUser}]]</li>
+
+					<!-- Display sign out when user have logged in -->
+					<li><form sec:authorize="isAuthenticated()"
+							th:action="@{/logout}" method="post">
+							<input type="submit" value="Log Out" class="btn-danger" />
+						</form></li>
+
+					<!-- Display sign in when user have not logged in -->
+					<li><a sec:authorize="isAnonymous()" class="btn-success"
+						th:href="@{/login}"><button class="btn-success">Log In</button></a></li>
+						
+					<li><a sec:authorize="isAnonymous()" class="btn-success"
+						th:href="@{/signIn}"><button class="btn-success">Sign In</button></a></li>
 				</ul>
 			</div>
 

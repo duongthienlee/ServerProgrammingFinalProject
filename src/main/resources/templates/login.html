@@ -18,26 +18,18 @@
 	<!-- Nav fragment -->
 	<object th:replace="fragments/specialNav :: nav"></object>
 
-	<object th:replace="fragments/homesection :: section"></object>
+	<br><br><br><br><br><br>
 	<section id="portfolio" class="portfolio">
 		<div class="container">
 			<div class="row">
 				<div class="main_portfolio sections">
 					<div class="head_title text-center">
-						<div class="col-md-4">
-							<h3 th:inline="text">Welcome
-								[[${#httpServletRequest.remoteUser}]]</h3>
-						</div>
-						<div class="col-md-4" style="padding: 20px 0">
-							<form th:action="@{/logout}" method="post">
-								<input type="submit" value="Sign Out" class="btn btn-danger" />
-							</form>
-						</div>
+						<h2>You need to login !</h2>
 						<div th:if="${param.error}">Invalid username and password.</div>
 						<div th:if="${param.logout}">You have been logged out.</div>
 						<form th:action="@{/login}" method="post">
 							<div>
-								<label> User Name : <input type="text" name="username" />
+								<label> Username: <input type="text" name="username" />
 								</label>
 							</div>
 							<div>
@@ -45,7 +37,7 @@
 								</label>
 							</div>
 							<div>
-								<input type="submit" value="Sign In" />
+								<input type="submit" value="Log In" />
 							</div>
 						</form>
 					</div>

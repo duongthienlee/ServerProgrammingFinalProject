@@ -4,7 +4,8 @@
 <!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
 <!--[if gt IE 8]><!-->
 <html class="no-js" lang="en" xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:th="http://www.thymeleaf.org">
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
 <!--<![endif]-->
 <head>
 <object th:replace="fragments/head :: head" th:remove="tag"></object>
@@ -30,9 +31,9 @@
 							<th>Birthday</th>
 							<th>Age</th>
 							<th>Youtube Channel</th>
-							<th></th>
-							<th></th>
-							
+							<th sec:authorize="hasAuthority('ADMIN')"></th>
+							<th sec:authorize="hasAuthority('ADMIN')"></th>
+
 						</tr>
 						<!-- th:with #calendars get current day minus subtring of birthday(year) to calculate the age -->
 						<tr th:each="artist : ${artists}"
@@ -43,10 +44,14 @@
 							<td th:text="${result}"></td>
 							<td><a th:href="@{(${artist.youtubeChannel})}">Click to
 									the channel</a></td>
-							 <td><a th:href="@{/deleteArtist/{id}(id=${artist.artistId})}"
+
+							<td sec:authorize="hasAuthority('ADMIN')"><a
+								class="btn-danger btn-xs"
+								th:href="@{/editArtist{id}(id=${artist.artistId})}">Edit</a></td>
+
+							<td sec:authorize="hasAuthority('ADMIN')"><a
+								th:href="@{/deleteArtist/{id}(id=${artist.artistId})}"
 								class="btn-danger btn-xs">Delete</a></td>
-							<td><a class="btn-danger btn-xs"
-								th:href="@{/editArtist{id}(id=${artist.artistId})}">Edit</a></td> 
 						</tr>
 					</table>
 					<a class="btn btn-primary" href="/addArtist">Add Artist</a>

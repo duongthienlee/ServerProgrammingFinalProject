@@ -26,8 +26,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         // Allow anonymous to access resource
         .antMatchers("/css/**","/js/**","/images/**","/fonts/**").permitAll()
         // Allow anonymous to access index page
-        .antMatchers("/", "/index").permitAll()
-        
+        .antMatchers("/", "/index","/login", "signIn").permitAll()
         .anyRequest().authenticated()
         .and()
         .formLogin()

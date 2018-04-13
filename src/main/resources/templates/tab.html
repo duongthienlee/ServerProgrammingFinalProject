@@ -4,7 +4,8 @@
 <!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
 <!--[if gt IE 8]><!-->
 <html class="no-js" lang="en" xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:th="http://www.thymeleaf.org">
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
 <!--<![endif]-->
 <head>
 <object th:replace="fragments/head :: head" th:remove="tag"></object>
@@ -33,8 +34,8 @@
 							<th>Rating</th>
 							<th>Type</th>
 							<th>Number of downloaded</th>
-							<th></th>
-							<th></th>
+							<th sec:authorize="hasAuthority('ADMIN')"></th>
+							<th sec:authorize="hasAuthority('ADMIN')"></th>
 						</tr>
 
 						<tr th:each="tab : ${tabs}">
@@ -45,9 +46,13 @@
 							<td th:text="${tab.rating}"></td>
 							<td th:text="${tab.type}"></td>
 							<td th:text="${tab.downloaded}"></td>
-							<td><a class="btn-danger btn-xs"
+
+							<td sec:authorize="hasAuthority('ADMIN')"><a
+								class="btn-danger btn-xs"
 								th:href="@{/editTab{id}(id=${tab.ID})}">Edit</a></td>
-							<td><a th:href="@{/deleteTab/{id}(id=${tab.ID})}"
+
+							<td sec:authorize="hasAuthority('ADMIN')"><a
+								th:href="@{/deleteTab/{id}(id=${tab.ID})}"
 								class="btn-xs btn-danger">Delete</a></td>
 						</tr>
 					</table>

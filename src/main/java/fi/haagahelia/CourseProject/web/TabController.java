@@ -5,6 +5,7 @@ import java.util.List;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -141,6 +142,7 @@ public class TabController {
 	}
 
 	// Delete tab
+	@PreAuthorize("hasAuthority('ADMIN')")
 	@RequestMapping(value = "/deleteTab/{id}", method = RequestMethod.GET)
 	public String deleteTab(@PathVariable("id") Long tabId, Model model) {
 		tRepository.deleteById(tabId);
@@ -149,6 +151,7 @@ public class TabController {
 	}
 
 	// Edit tab
+	@PreAuthorize("hasAuthority('ADMIN')")
 	@RequestMapping(value = "/editTab{id}")
 	public String editTab(@PathVariable("id") Long tabId, Model model) {
 		model.addAttribute("tab", tRepository.findById(tabId));
@@ -179,6 +182,7 @@ public class TabController {
 	}
 
 	// Delete artist
+	@PreAuthorize("hasAuthority('ADMIN')")
 	@RequestMapping(value = "/deleteArtist/{id}", method = RequestMethod.GET)
 	public String deleteArtist(@PathVariable("id") Long artistId, Model model) {
 		aRepository.deleteById(artistId);
@@ -187,6 +191,7 @@ public class TabController {
 	}
 
 	// Edit artist
+	@PreAuthorize("hasAuthority('ADMIN')")
 	@RequestMapping(value = "/editArtist{id}")
 	public String editArtist(@PathVariable("id") Long artistId, Model model) {
 		model.addAttribute("artist", aRepository.findById(artistId));

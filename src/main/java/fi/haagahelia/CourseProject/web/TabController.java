@@ -118,6 +118,12 @@ public class TabController {
 		return "redirect:index#contact";
 	}
 
+	// Login
+	@RequestMapping(value = "/login")
+	public String login() {
+		return "login";
+	}
+
 	// -------CRUD service Section-----------
 	// Display tabs
 	@RequestMapping(value = "/tab")
@@ -197,12 +203,6 @@ public class TabController {
 		model.addAttribute("artist", aRepository.findById(artistId));
 		return "editArtist";
 
-	}
-
-	// Login
-	@RequestMapping(value = "/login")
-	public String login() {
-		return "login";
 	}
 
 }

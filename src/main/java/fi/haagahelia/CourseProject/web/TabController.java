@@ -77,7 +77,7 @@ public class TabController {
 	// ------ RequestMapping ------
 	// redirect to index if user hits the root
 	@RequestMapping("/")
-	public String home(Model model) {
+	public String home() {
 		return "redirect:index";
 	}
 

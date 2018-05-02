@@ -26,6 +26,7 @@ public class CourseProjectApplication {
 	@Bean
 	public CommandLineRunner demo(ArtistRepository aRepository, TabRepository tRepository, UserRepository uRepository) {
 		return (args) -> {
+			// Add demo artists for testing
 			log.info("save artists");
 			aRepository.save(new Artist("Ed", "Sheeran", "England",
 					"https://www.youtube.com/channel/UC0C-w0YjGpqDXGB8IHb662A", "1991-02-17"));
@@ -46,6 +47,7 @@ public class CourseProjectApplication {
 			aRepository.save(new Artist("Elvis", "Presley", "USA", "https://www.youtube.com/user/ElvisPresleyVEVO",
 					"1935-01-08"));
 
+			//Add demo Tab for testing
 			log2.info("save tab");
 			tRepository.save(new Tab(aRepository.findByFirstNameAndLastName("Ed", "Sheeran").get(0), "Perfect", 5,
 					"Chords", 12, "https://tabs.ultimate-guitar.com/tab/ed_sheeran/perfect_chords_1956589"));

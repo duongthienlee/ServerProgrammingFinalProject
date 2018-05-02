@@ -22,7 +22,7 @@ import fi.haagahelia.CourseProject.domain.YoutubeSearchCriteria;
 import fi.haagahelia.CourseProject.service.YouTubeService;
 
 @Controller
-public class TabController {
+public class GuitarController {
 
 	@Autowired
 	private YouTubeService youtubeService;

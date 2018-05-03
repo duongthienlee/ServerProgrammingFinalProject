@@ -15,7 +15,7 @@ import com.google.api.services.youtube.YouTube;
 import com.google.api.services.youtube.model.SearchListResponse;
 import com.google.api.services.youtube.model.SearchResult;
 
-import fi.haagahelia.CourseProject.domain.YouTubeVideo;
+import fi.haagahelia.CourseProject.model.YouTubeVideo;
 
 @Service
 public class YouTubeService {

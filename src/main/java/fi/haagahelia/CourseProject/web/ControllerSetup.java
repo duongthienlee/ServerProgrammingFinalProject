@@ -1,4 +1,4 @@
-package fi.haagahelia.CourseProject;
+package fi.haagahelia.CourseProject.web;
 
 import java.beans.PropertyEditorSupport;
 

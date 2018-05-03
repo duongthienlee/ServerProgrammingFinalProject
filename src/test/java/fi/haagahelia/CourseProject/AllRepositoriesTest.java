@@ -8,11 +8,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import fi.haagahelia.CourseProject.domain.Artist;
-import fi.haagahelia.CourseProject.domain.ArtistRepository;
-import fi.haagahelia.CourseProject.domain.Tab;
-
-import fi.haagahelia.CourseProject.domain.TabRepository;
+import fi.haagahelia.CourseProject.model.Artist;
+import fi.haagahelia.CourseProject.model.Tab;
+import fi.haagahelia.CourseProject.repository.ArtistRepository;
+import fi.haagahelia.CourseProject.repository.TabRepository;
 
 @RunWith(SpringRunner.class)
 @DataJpaTest

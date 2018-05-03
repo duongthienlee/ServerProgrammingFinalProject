@@ -7,12 +7,12 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
-import fi.haagahelia.CourseProject.domain.User;
-import fi.haagahelia.CourseProject.domain.Artist;
-import fi.haagahelia.CourseProject.domain.ArtistRepository;
-import fi.haagahelia.CourseProject.domain.Tab;
-import fi.haagahelia.CourseProject.domain.TabRepository;
-import fi.haagahelia.CourseProject.domain.UserRepository;
+import fi.haagahelia.CourseProject.model.Artist;
+import fi.haagahelia.CourseProject.model.Tab;
+import fi.haagahelia.CourseProject.model.User;
+import fi.haagahelia.CourseProject.repository.ArtistRepository;
+import fi.haagahelia.CourseProject.repository.TabRepository;
+import fi.haagahelia.CourseProject.repository.UserRepository;
 
 @SpringBootApplication
 public class CourseProjectApplication {

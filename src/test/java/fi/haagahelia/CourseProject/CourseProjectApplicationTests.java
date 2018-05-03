@@ -8,14 +8,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import fi.haagahelia.CourseProject.web.GuitarController;
+import fi.haagahelia.CourseProject.web.MainController;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class CourseProjectApplicationTests {
 
 	@Autowired
-	private GuitarController controller;
+	private MainController controller;
 
 	// Smoke testing
 	@Test

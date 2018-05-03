@@ -1,4 +1,4 @@
-package fi.haagahelia.CourseProject.domain;
+package fi.haagahelia.CourseProject.model;
 
 import javax.validation.constraints.Size;
 

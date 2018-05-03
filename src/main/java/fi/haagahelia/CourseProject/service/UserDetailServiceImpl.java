@@ -1,4 +1,4 @@
-package fi.haagahelia.CourseProject.web;
+package fi.haagahelia.CourseProject.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.authority.AuthorityUtils;
@@ -7,8 +7,8 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
-import fi.haagahelia.CourseProject.domain.User;
-import fi.haagahelia.CourseProject.domain.UserRepository;
+import fi.haagahelia.CourseProject.model.User;
+import fi.haagahelia.CourseProject.repository.UserRepository;
 
 @Service
 public class UserDetailServiceImpl implements UserDetailsService {

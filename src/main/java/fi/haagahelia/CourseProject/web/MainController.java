@@ -13,16 +13,16 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import fi.haagahelia.CourseProject.domain.Artist;
-import fi.haagahelia.CourseProject.domain.ArtistRepository;
-import fi.haagahelia.CourseProject.domain.Tab;
-import fi.haagahelia.CourseProject.domain.TabRepository;
-import fi.haagahelia.CourseProject.domain.YouTubeVideo;
-import fi.haagahelia.CourseProject.domain.YoutubeSearchCriteria;
+import fi.haagahelia.CourseProject.model.Artist;
+import fi.haagahelia.CourseProject.model.Tab;
+import fi.haagahelia.CourseProject.model.YouTubeVideo;
+import fi.haagahelia.CourseProject.model.YoutubeSearchCriteria;
+import fi.haagahelia.CourseProject.repository.ArtistRepository;
+import fi.haagahelia.CourseProject.repository.TabRepository;
 import fi.haagahelia.CourseProject.service.YouTubeService;
 
 @Controller
-public class GuitarController {
+public class MainController {
 
 	@Autowired
 	private YouTubeService youtubeService;

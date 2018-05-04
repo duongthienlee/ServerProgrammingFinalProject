@@ -31,8 +31,8 @@
 							<th>Birthday</th>
 							<th>Age</th>
 							<th>Youtube Channel</th>
-							<th sec:authorize="hasAuthority('ADMIN')"></th>
-							<th sec:authorize="hasAuthority('ADMIN')"></th>
+							<th sec:authorize="hasAuthority('ROLE_ADMIN')"></th>
+							<th sec:authorize="hasAuthority('ROLE_ADMIN')"></th>
 
 						</tr>
 						<!-- th:with #calendars get current day minus subtring of birthday(year) to calculate the age -->
@@ -45,16 +45,17 @@
 							<td><a th:href="@{(${artist.youtubeChannel})}">Click to
 									the channel</a></td>
 
-							<td sec:authorize="hasAuthority('ADMIN')"><a
+							<td sec:authorize="hasAuthority('ROLE_ADMIN')"><a
 								class="btn-danger btn-xs"
 								th:href="@{/editArtist{id}(id=${artist.artistId})}">Edit</a></td>
 
-							<td sec:authorize="hasAuthority('ADMIN')"><a
+							<td sec:authorize="hasAuthority('ROLE_ADMIN')"><a
 								th:href="@{/deleteArtist/{id}(id=${artist.artistId})}"
 								class="btn-danger btn-xs">Delete</a></td>
 						</tr>
 					</table>
-					<a class="btn btn-primary" href="/addArtist">Add Artist</a>
+					<a sec:authorize="hasAuthority('ROLE_ADMIN')"
+						class="btn btn-primary" href="/addArtist">Add Artist</a>
 				</div>
 			</div>
 		</div>

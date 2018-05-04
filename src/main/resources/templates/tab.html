@@ -34,8 +34,8 @@
 							<th>Rating</th>
 							<th>Type</th>
 							<th>Number of downloaded</th>
-							<th sec:authorize="hasAuthority('ADMIN')"></th>
-							<th sec:authorize="hasAuthority('ADMIN')"></th>
+							<th sec:authorize="hasAuthority('ROLE_ADMIN')"></th>
+							<th sec:authorize="hasAuthority('ROLE_ADMIN')"></th>
 						</tr>
 
 						<tr th:each="tab : ${tabs}">
@@ -47,16 +47,16 @@
 							<td th:text="${tab.type}"></td>
 							<td th:text="${tab.downloaded}"></td>
 
-							<td sec:authorize="hasAuthority('ADMIN')"><a
+							<td sec:authorize="hasAuthority('ROLE_ADMIN')"><a
 								class="btn-danger btn-xs"
 								th:href="@{/editTab{id}(id=${tab.ID})}">Edit</a></td>
 
-							<td sec:authorize="hasAuthority('ADMIN')"><a
+							<td sec:authorize="hasAuthority('ROLE_ADMIN')"><a
 								th:href="@{/deleteTab/{id}(id=${tab.ID})}"
 								class="btn-xs btn-danger">Delete</a></td>
 						</tr>
 					</table>
-					<a class="btn btn-primary" href="/addTab">Add Tab</a>
+					<a sec:authorize="hasAuthority('ROLE_ADMIN')" class="btn btn-primary" href="/addTab">Add Tab</a>
 				</div>
 			</div>
 		</div>

@@ -1,21 +1,43 @@
 package fi.haagahelia.CourseProject.model;
 
+import java.io.Serializable;
+
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
-public class Tab {
+@Table(name = "tab")
+public class Tab implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -5822879610350180744L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long ID;
-	private String song, type, url;
-	private int rating, downloaded;
+
+	@Column(name = "song")
+	private String song;
+
+	@Column(name = "type")
+	private String type;
+
+	@Column(name = "url")
+	private String url;
+
+	@Column(name = "rating")
+	private int rating;
+
+	@Column(name = "downloaded")
+	private int downloaded;
 
 	@ManyToOne
 	@JsonIgnore

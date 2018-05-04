@@ -133,6 +133,7 @@ public class MainController {
 	}
 
 	// Add tab
+	@PreAuthorize("hasAuthority('ROLE_ADMIN')")
 	@RequestMapping(value = "/addTab")
 	public String addTab(Model model) {
 		model.addAttribute("tab", new Tab());
@@ -141,6 +142,7 @@ public class MainController {
 	}
 
 	// Save tab
+	@PreAuthorize("hasAuthority('ROLE_ADMIN')")
 	@RequestMapping("/saveTab")
 	public String saveTab(Tab tab) {
 		tRepository.save(tab);
@@ -148,7 +150,7 @@ public class MainController {
 	}
 
 	// Delete tab
-	@PreAuthorize("hasAuthority('ADMIN')")
+	@PreAuthorize("hasAuthority('ROLE_ADMIN')")
 	@RequestMapping(value = "/deleteTab/{id}", method = RequestMethod.GET)
 	public String deleteTab(@PathVariable("id") Long tabId, Model model) {
 		tRepository.deleteById(tabId);
@@ -157,7 +159,7 @@ public class MainController {
 	}
 
 	// Edit tab
-	@PreAuthorize("hasAuthority('ADMIN')")
+	@PreAuthorize("hasAuthority('ROLE_ADMIN')")
 	@RequestMapping(value = "/editTab{id}")
 	public String editTab(@PathVariable("id") Long tabId, Model model) {
 		model.addAttribute("tab", tRepository.findById(tabId));
@@ -174,6 +176,7 @@ public class MainController {
 	}
 
 	// Add artist
+	@PreAuthorize("hasAuthority('ROLE_ADMIN')")
 	@RequestMapping(value = "/addArtist")
 	public String addArtist(Model model) {
 		model.addAttribute("artist", new Artist());
@@ -181,6 +184,7 @@ public class MainController {
 	}
 
 	// add artist then save artist.
+	@PreAuthorize("hasAuthority('ROLE_ADMIN')")
 	@RequestMapping("/saveArtist")
 	public String saveArtist(Artist artist) {
 		aRepository.save(artist);
@@ -188,7 +192,7 @@ public class MainController {
 	}
 
 	// Delete artist
-	@PreAuthorize("hasAuthority('ADMIN')")
+	@PreAuthorize("hasAuthority('ROLE_ADMIN')")
 	@RequestMapping(value = "/deleteArtist/{id}", method = RequestMethod.GET)
 	public String deleteArtist(@PathVariable("id") Long artistId, Model model) {
 		aRepository.deleteById(artistId);
@@ -197,7 +201,7 @@ public class MainController {
 	}
 
 	// Edit artist
-	@PreAuthorize("hasAuthority('ADMIN')")
+	@PreAuthorize("hasAuthority('ROLE_ADMIN')")
 	@RequestMapping(value = "/editArtist{id}")
 	public String editArtist(@PathVariable("id") Long artistId, Model model) {
 		model.addAttribute("artist", aRepository.findById(artistId));

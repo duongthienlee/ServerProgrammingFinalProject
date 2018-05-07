@@ -16,7 +16,7 @@
 
 	<!-- Nav fragment -->
 	<object th:replace="fragments/specialNav :: nav"></object>
-	
+
 	<object th:replace="fragments/homesection :: section"></object>
 	<section id="portfolio" class="portfolio">
 		<div class="container">
@@ -25,30 +25,49 @@
 					<div class="head_title text-center">
 						<h2>Add Artist</h2>
 						<div>
-							<form class="form-inline" th:object="${artist}" th:action="@{saveArtist}" action="#"
-								method="post">
+							<form class="form-horizontal" th:object="${artist}"
+								th:action="@{saveArtist}" action="#" method="post">
 								<div class="form-group">
-									<label for="firstName">Firstname</label> <input type="text"
-										id="fname" th:field="*{firstName}" />
+									<label class="control-label col-sm-4" for="firstName">Firstname</label>
+									<div class="col-sm-4">
+										<input class="form-control" type="text" id="fname"
+											th:field="*{firstName}" />
+									</div>
 								</div>
 								<div class="form-group">
-									<label for="lastName">Lastname</label> <input type="text"
-										id="lname" th:field="*{lastName}" />
+									<label class="control-label col-sm-4" for="lastName">Lastname</label>
+									<div class="col-sm-4">
+										<input class="form-control" type="text" id="lname"
+											th:field="*{lastName}" />
+									</div>
 								</div>
 								<div class="form-group">
-									<label for="country">Country</label> <input type="text"
-										th:field="*{country}" />
+									<label class="control-label col-sm-4" for="country">Country</label>
+									<div class="col-sm-4">
+										<input class="form-control" type="text" th:field="*{country}" />
+									</div>
 								</div>
 								<div class="form-group">
-									<label for="birthday">Birthday</label> <input type="date"
-										th:field="*{birthday}" />
+									<label class="control-label col-sm-4" for="birthday">Birthday</label>
+									<div class="col-sm-4">
+										<input class="form-control" type="date" th:field="*{birthday}" />
+									</div>
 								</div>
 								<div class="form-group">
-									<label for="youtubeChannel">Youtube URL</label> <input
-										type="url" th:field="*{youtubeChannel}" />
+									<label class="control-label col-sm-4" for="youtubeChannel">Youtube
+										URL</label>
+									<div class="col-sm-4">
+										<input class="form-control" type="url"
+											th:field="*{youtubeChannel}" />
+									</div>
 								</div>
 
-								<input type="submit" value="Save"></input>
+								<div class="form-group">
+									<div class="col-sm-offset-4 col-sm-4">
+										<input type="submit" value="Save" class="btn"></input>
+									</div>
+								</div>
+
 							</form>
 
 						</div>

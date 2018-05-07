@@ -31,10 +31,10 @@
 
 					<form class="form-horizontal" th:action="@{/login}" method="post">
 						<div class="form-group">
-							<label class="control-label col-sm-4" for="email">Email:</label>
+							<label class="control-label col-sm-4" for="username">Username:</label>
 							<div class="col-sm-4">
-								<input type="email" class="form-control" name="email" id="email"
-									placeholder="Enter email">
+								<input type="text" class="form-control" name="username"
+									id="username" placeholder="Enter username">
 							</div>
 
 						</div>
@@ -50,10 +50,21 @@
 							<div class="col-sm-offset-4 col-sm-4">
 								<input type="submit" value="Log In" class="btn" />
 							</div>
-
 						</div>
-					</form>
 
+					</form>
+					<div class="form-group">
+						<div class="col-sm-offset-4 col-sm-4">
+							<p>Don't have an account?</p>
+						</div>
+
+						<div class="col-sm-offset-4 col-sm-4">
+							<a sec:authorize="isAnonymous()" th:href="@{/signup}">
+								<button class="btn-signUp">Sign Up</button>
+							</a>
+						</div>
+
+					</div>
 				</div>
 			</div>
 		</div>

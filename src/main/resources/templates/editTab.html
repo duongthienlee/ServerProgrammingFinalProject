@@ -25,32 +25,63 @@
 					<div class="head_title text-center">
 						<h2>Edit Tab</h2>
 						<div>
-							<form th:object="${tab}" th:action="@{saveTab}" action="#"
-								method="post">
-								<input type="hidden" id="id" th:field="*{ID}" /> 
-								
-								<label for="song">Song</label> 
-								<input type="text" id="song" th:field="*{song}" />
-								<label for="artist">Artist</label> 
-								<select id="artistList" th:field="*{artist}">
-									<option th:each="artist: ${artists}"
-										th:value="${artist.artistId}"
-										th:text="${artist.firstName} + ' ' + ${artist.lastName}">
-									</option>
-								</select>
-								<label for="rating">Rating</label> 
-								<input type="number" id="rating" th:field="*{rating}" />
-								
-								<label for="rating">Type</label> 
-								<input type="text" id="type" th:field="*{type}" />
-								
-								<label for="downloaded">Downloaded</label> 
-								<input type="number" id="downloaded" th:field="*{downloaded}" />
-								
-								<label for="url">URL</label> 
-								<input type="url" id="url" th:field="*{url}" />
-								
-								<input type="submit" value="Save"></input>
+							<form class="form-horizontal" th:object="${tab}"
+								th:action="@{saveTab}" action="#" method="post">
+								<div class="form-group">
+									<input type="hidden" id="id" th:field="*{ID}" /> <label
+										class="control-label col-sm-4" for="song">Song</label>
+									<div class="col-sm-4">
+										<input class="form-control" type="text" id="song"
+											th:field="*{song}" />
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="control-label col-sm-4" for="artist">Artist</label>
+									<div class="col-sm-4">
+										<select class="form-control" id="artistList"
+											th:field="*{artist}">
+											<option th:each="artist: ${artists}"
+												th:value="${artist.artistId}"
+												th:text="${artist.firstName} + ' ' + ${artist.lastName}">
+											</option>
+										</select>
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="control-label col-sm-4" for="rating">Rating</label>
+									<div class="col-sm-4">
+										<input class="form-control" type="number" id="rating"
+											th:field="*{rating}" />
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="control-label col-sm-4" for="type">Type</label>
+									<div class="col-sm-4">
+										<input class="form-control" type="text" id="type"
+											th:field="*{type}" />
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="control-label col-sm-4" for="downloaded">Downloaded</label>
+									<div class="col-sm-4">
+										<input class="form-control" type="number" id="downloaded"
+											th:field="*{downloaded}" />
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="control-label col-sm-4" for="url">URL</label>
+									<div class="col-sm-4">
+										<input class="form-control" type="url" id="url"
+											th:field="*{url}" />
+									</div>
+								</div>
+
+								<div class="form-group">
+									<div class="col-sm-offset-4 col-sm-4">
+										<input type="submit" value="Save" class="btn"></input>
+									</div>
+
+								</div>
 							</form>
 						</div>
 					</div>

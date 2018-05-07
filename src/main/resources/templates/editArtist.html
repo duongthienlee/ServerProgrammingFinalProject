@@ -25,19 +25,60 @@
 					<div class="head_title text-center">
 						<h2>Edit Artist</h2>
 						<div>
-							<form th:object="${artist}" th:action="@{saveArtist}" action="#"
-								method="post">
-								<input type="hidden" id="id" th:field="*{artistId}" /> <label
-									for="firstName">First Name</label> <input type="text"
-									id="firstName" th:field="*{firstName}" /> <label
-									for="lastName">Last Name</label> <input type="text"
-									id="lastName" th:field="*{lastName}" /> <label for="country">Country</label>
-								<input type="text" id="country" th:field="*{country}" /> <label
-									for="birthday">Birthday</label> <input type="date"
-									id="birthday" th:field="*{birthday}" /> <label
-									for="youtubeChannel">Youtube URL</label> <input type="url"
-									id="youtubeChannel" th:field="*{youtubeChannel}" /> <input
-									type="submit" value="Save"></input>
+							<form class="form-horizontal" th:object="${artist}"
+								th:action="@{saveArtist}" action="#" method="post">
+								<div class="form-group">
+									<input type="hidden" id="id" th:field="*{artistId}" /> <label
+										class="control-label col-sm-4" for="firstName">First
+										Name</label>
+									<div class="col-sm-4">
+										<input class="form-control" type="text" id="firstName"
+											th:field="*{firstName}" />
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="control-label col-sm-4" for="lastName">Last
+										Name</label>
+									<div class="col-sm-4">
+										<input class="form-control" type="text" id="lastName"
+											th:field="*{lastName}" />
+									</div>
+								</div>
+
+								<div class="form-group">
+									<label class="control-label col-sm-4" for="country">Country
+									</label>
+									<div class="col-sm-4">
+										<input class="form-control" type="text" id="country"
+											th:field="*{country}" />
+									</div>
+								</div>
+
+								<div class="form-group">
+									<label class="control-label col-sm-4" for="birthday">Birthday
+									</label>
+									<div class="col-sm-4">
+										<input class="form-control" type="date" id="birthday"
+											th:field="*{birthday}" />
+									</div>
+								</div>
+
+								<div class="form-group">
+									<label class="control-label col-sm-4" for="youtubeChannel">Youtube
+										URL </label>
+									<div class="col-sm-4">
+										<input class="form-control" type="date" id="youtubeChannel"
+											th:field="*{youtubeChannel}" />
+									</div>
+								</div>
+
+
+								<div class="form-group">
+									<div class="col-sm-offset-4 col-sm-4">
+										<input type="submit" value="Save" class="btn"></input>
+									</div>
+								</div>
+
 							</form>
 						</div>
 					</div>

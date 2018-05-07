@@ -49,14 +49,16 @@
 
 							<td sec:authorize="hasAuthority('ROLE_ADMIN')"><a
 								class="btn-danger btn-xs"
-								th:href="@{/editTab{id}(id=${tab.ID})}">Edit</a></td>
+								th:href="@{/editTab{id}(id=${tab.ID})}"><button
+										class="btn-danger">Edit</button></a></td>
 
 							<td sec:authorize="hasAuthority('ROLE_ADMIN')"><a
 								th:href="@{/deleteTab/{id}(id=${tab.ID})}"
-								class="btn-xs btn-danger">Delete</a></td>
+								class="btn-xs btn-danger"><button class="btn-danger">Delete</button></a></td>
 						</tr>
 					</table>
-					<a sec:authorize="hasAuthority('ROLE_ADMIN')" class="btn btn-primary" href="/addTab">Add Tab</a>
+					<a sec:authorize="hasAuthority('ROLE_ADMIN')" href="/addTab"><button
+							class="btn">Add Tab</button></a>
 				</div>
 			</div>
 		</div>

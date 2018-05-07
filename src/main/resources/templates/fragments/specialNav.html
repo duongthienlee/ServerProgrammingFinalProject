@@ -30,11 +30,13 @@
 						</form></li>
 
 					<!-- Display sign in when user have not logged in -->
-					<li><a sec:authorize="isAnonymous()" class="btn-success"
-						th:href="@{/login}"><button class="btn-success">Log In</button></a></li>
-						
-					<li><a sec:authorize="isAnonymous()" class="btn-success"
-						th:href="@{/signup}"><button class="btn-success">Sign Up</button></a></li>
+					<li><a sec:authorize="isAnonymous()" th:href="@{/login}"><button
+								class="btn-nav">Log In</button></a></li>
+
+					<li><a sec:authorize="isAnonymous()" th:href="@{/signup}">
+							<button class="btn-signUp">Sign Up</button>
+
+					</a></li>
 				</ul>
 			</div>
 

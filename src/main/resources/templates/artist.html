@@ -46,16 +46,18 @@
 									the channel</a></td>
 
 							<td sec:authorize="hasAuthority('ROLE_ADMIN')"><a
-								class="btn-danger btn-xs"
-								th:href="@{/editArtist{id}(id=${artist.artistId})}">Edit</a></td>
+								th:href="@{/editArtist{id}(id=${artist.artistId})}"><button
+										class="btn-danger">Edit</button></a></td>
 
 							<td sec:authorize="hasAuthority('ROLE_ADMIN')"><a
-								th:href="@{/deleteArtist/{id}(id=${artist.artistId})}"
-								class="btn-danger btn-xs">Delete</a></td>
+								th:href="@{/deleteArtist/{id}(id=${artist.artistId})}"><button
+										class="btn-danger">Delete</button></a></td>
+
+
 						</tr>
 					</table>
-					<a sec:authorize="hasAuthority('ROLE_ADMIN')"
-						class="btn btn-primary" href="/addArtist">Add Artist</a>
+					<a sec:authorize="hasAuthority('ROLE_ADMIN')" href="/addArtist"><button
+							class="btn">Add Artist</button></a>
 				</div>
 			</div>
 		</div>

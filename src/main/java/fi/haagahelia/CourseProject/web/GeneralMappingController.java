@@ -7,7 +7,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 public class GeneralMappingController {
-
+	@RequestMapping("/test")
+	public String test() {
+		return "test";
+	}
 	// ------------------------ Request Mapping -----------------------------------
 	// redirect to index if user hits the root
 	@RequestMapping("/")

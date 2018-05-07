@@ -18,29 +18,42 @@
 	<!-- Nav fragment -->
 	<object th:replace="fragments/specialNav :: nav"></object>
 
-	<br><br><br><br><br><br>
+	<div class="head_title text-center"></div>
 	<section id="portfolio" class="portfolio">
 		<div class="container">
 			<div class="row">
 				<div class="main_portfolio sections">
-					<div class="head_title text-center">
+					<div class="text-center">
 						<h2>You need to login !</h2>
 						<div th:if="${param.error}">Invalid username and password.</div>
 						<div th:if="${param.logout}">You have been logged out.</div>
-						<form th:action="@{/login}" method="post">
-							<div>
-								<label> Username: <input type="text" name="username" />
-								</label>
-							</div>
-							<div>
-								<label> Password: <input type="password" name="password" />
-								</label>
-							</div>
-							<div>
-								<input type="submit" value="Log In" />
-							</div>
-						</form>
 					</div>
+
+					<form class="form-horizontal" th:action="@{/login}" method="post">
+						<div class="form-group">
+							<label class="control-label col-sm-4" for="email">Email:</label>
+							<div class="col-sm-4">
+								<input type="email" class="form-control" name="email" id="email"
+									placeholder="Enter email">
+							</div>
+
+						</div>
+						<div class="form-group">
+							<label class="control-label col-sm-4" for="password">Password:</label>
+							<div class="col-sm-4">
+								<input type="password" class="form-control" name="password"
+									id="password" placeholder="Enter password">
+							</div>
+
+						</div>
+						<div class="form-group">
+							<div class="col-sm-offset-4 col-sm-4 col-sm-offset-4">
+								<input type="submit" value="Log In" class="btn" />
+							</div>
+
+						</div>
+					</form>
+
 				</div>
 			</div>
 		</div>

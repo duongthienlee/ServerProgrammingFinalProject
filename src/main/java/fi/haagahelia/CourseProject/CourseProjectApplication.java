@@ -47,7 +47,7 @@ public class CourseProjectApplication {
 			aRepository.save(new Artist("Elvis", "Presley", "USA", "https://www.youtube.com/user/ElvisPresleyVEVO",
 					"1935-01-08"));
 
-			//Add demo Tab for testing
+			// Add demo Tab for testing
 			log2.info("save tab");
 			tRepository.save(new Tab(aRepository.findByFirstNameAndLastName("Ed", "Sheeran").get(0), "Perfect", 5,
 					"Chords", 12, "https://tabs.ultimate-guitar.com/tab/ed_sheeran/perfect_chords_1956589"));

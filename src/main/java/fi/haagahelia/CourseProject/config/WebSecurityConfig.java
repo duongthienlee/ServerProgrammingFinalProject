@@ -26,7 +26,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         // Allow anonymous to access resource
         .antMatchers("/css/**","/js/**","/images/**","/fonts/**").permitAll()
         // Allow anonymous to access index page
-        .antMatchers("/index","/login","/home", "/service","/lessons","/portfolio","/blog","/contact","/signIn","/").permitAll()
+        .antMatchers("/index","/login","/home", "/service","/lessons","/portfolio","/blog","/contact","/signup","/saveuser","/").permitAll()
         .anyRequest().authenticated()
         .and()
         .formLogin()
@@ -36,7 +36,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         .permitAll()
         .and()
       .logout()
-          .permitAll();
+          .permitAll()
+          .invalidateHttpSession(true); // Invalidate session
     }
 
    /* Create in-memmory users for testing.

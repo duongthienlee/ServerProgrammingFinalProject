@@ -2,6 +2,7 @@ package fi.haagahelia.CourseProject.repository;
 
 import java.util.List;
 
+
 import org.springframework.data.repository.CrudRepository;
 
 import fi.haagahelia.CourseProject.model.Tab;

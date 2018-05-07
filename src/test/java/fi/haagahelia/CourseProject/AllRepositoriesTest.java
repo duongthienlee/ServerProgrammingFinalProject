@@ -10,16 +10,21 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import fi.haagahelia.CourseProject.model.Artist;
 import fi.haagahelia.CourseProject.model.Tab;
+import fi.haagahelia.CourseProject.model.User;
 import fi.haagahelia.CourseProject.repository.ArtistRepository;
 import fi.haagahelia.CourseProject.repository.TabRepository;
+import fi.haagahelia.CourseProject.repository.UserRepository;
 
 @RunWith(SpringRunner.class)
 @DataJpaTest
+// Test all repositories using H2 in memory database
 public class AllRepositoriesTest {
 	@Autowired
 	private TabRepository tRepository;
 	@Autowired
 	private ArtistRepository aRepository;
+	@Autowired
+	private UserRepository uRepository;
 
 	/*-----------------------------------Test Tab Add, Delete functionalities-------------------------------- */
 	@Test
@@ -66,4 +71,24 @@ public class AllRepositoriesTest {
 		assertThat(aRepository.existsById(artist.getArtistId())).isFalse();
 
 	}
+
+	/*-----------------------------------Test User Add, Delete functionalities-------------------------------- */
+	@Test
+	public void TestUserCrud() {
+		// Add a new user for testing
+		User user = new User("test", "$2a$10$0MMwY.IQqpsVc1jC8u7IJ.2rT8b0Cd3b3sfIBGV2zfgnPGtT4r0.C", "test@gmail.com",
+				"ROLE_ADMIN");
+		uRepository.save(user);
+		// assert that the added user is created and saved in the user repository
+		assertThat(user.getId()).isNotNull();
+		assertThat(uRepository.findById(user.getId())).isNotNull();
+		// now delete the added user out of the user repository
+		uRepository.deleteById(user.getId());
+		/*
+		 * * Verify that the deleted user still exists in the repository or not, If //
+		 * false, * then it has been deleted
+		 */
+		assertThat(uRepository.existsById(user.getId())).isFalse();
+	}
+
 }

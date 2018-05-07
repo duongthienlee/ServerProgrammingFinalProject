@@ -9,18 +9,33 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import fi.haagahelia.CourseProject.web.CRUDController;
+import fi.haagahelia.CourseProject.web.GeneralMappingController;
+import fi.haagahelia.CourseProject.web.UserController;
+import fi.haagahelia.CourseProject.web.RestControllerTest;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class CourseProjectApplicationTests {
 
 	@Autowired
-	private CRUDController controller;
+	private CRUDController crudController;
+
+	@Autowired
+	private GeneralMappingController gmController;
+
+	@Autowired
+	private UserController uController;
+
+	@Autowired
+	private RestControllerTest youtubeController;
 
 	// Smoke testing
 	@Test
 	public void contexLoads() throws Exception {
-		assertThat(controller).isNotNull();
+		assertThat(crudController).isNotNull();
+		assertThat(gmController).isNotNull();
+		assertThat(uController).isNotNull();
+		assertThat(youtubeController).isNotNull();
 	}
 
 }

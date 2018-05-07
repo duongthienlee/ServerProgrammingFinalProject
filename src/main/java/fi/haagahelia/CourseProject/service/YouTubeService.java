@@ -97,12 +97,12 @@ public class YouTubeService {
 	 */
 	private YouTube getYouTube() {
 		YouTube youtube = new YouTube.Builder(new NetHttpTransport(), new JacksonFactory(), (reqeust) -> {
-		}).setApplicationName("youtube-spring-boot-demo").build();
+		}).setApplicationName("youtube-spring-boot-CourseProject").build();
 
 		return youtube;
 	}
 
 	public static void main(String[] args) {
-		new YouTubeService().fetchVideosByQuery("bill maher");
+		new YouTubeService().fetchVideosByQuery("Duong Thien Ly");
 	}
 }

@@ -24,7 +24,10 @@ public class TestRestRequest extends CourseProjectApplicationTests {
 		mockMvc = MockMvcBuilders.webAppContextSetup(webApplicationContext).build();
 	}
 
-	// creating request and receiving response without need of deploying code to a web container.
+	// creating request and receiving response without need of deploying code to a
+	// web container.
+	// The created Artist is in CreateArtistIntegrationTest, created 1 Artist with
+	// firstName Thien, therefore, only ArtistInfo1 will pass the test
 	@Test
 	public void validate_ArtistInfo1() throws Exception {
 		mockMvc.perform(get("/artistTest")).andExpect(status().isOk())

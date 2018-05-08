@@ -12,7 +12,7 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
 
-public class TestRestRequest extends CourseProjectApplicationTests {
+public class RestRequestTest extends CourseProjectApplicationTests {
 
 	@Autowired
 	private WebApplicationContext webApplicationContext;
@@ -43,4 +43,5 @@ public class TestRestRequest extends CourseProjectApplicationTests {
 				.andExpect(jsonPath("$.firstName").value("Jack")).andExpect(jsonPath("$.lastName").value("Ma"));
 
 	}
+
 }

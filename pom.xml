@@ -44,13 +44,6 @@
 			<scope>runtime</scope>
 		</dependency>
 		
-		<!-- Spring boot starter test -->
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-test</artifactId>
-			<scope>test</scope>
-		</dependency>
-		
 		<!-- Postgresql -->
 		<dependency>
 			<groupId>org.postgresql</groupId>
@@ -109,6 +102,13 @@
 		
 		
 		<!--                             Testing section                         -->
+		<!-- Spring boot starter test -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+		
 		<!-- https://mvnrepository.com/artifact/com.h2database/h2 -->
 		<dependency>
 		 	<groupId>com.h2database</groupId>
@@ -119,6 +119,13 @@
 		<dependency>
     			<groupId>org.hibernate</groupId>
     			<artifactId>hibernate-entitymanager</artifactId>
+		</dependency>
+		
+		<!-- https://mvnrepository.com/artifact/org.springframework.security/spring-security-test -->
+		<dependency>
+   			<groupId>org.springframework.security</groupId>
+    			<artifactId>spring-security-test</artifactId>
+    			<scope>test</scope>
 		</dependency>
 
 	</dependencies>

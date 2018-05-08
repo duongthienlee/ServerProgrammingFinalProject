@@ -11,7 +11,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 import fi.haagahelia.CourseProject.web.CRUDController;
 import fi.haagahelia.CourseProject.web.GeneralMappingController;
 import fi.haagahelia.CourseProject.web.UserController;
-import fi.haagahelia.CourseProject.web.RestControllerTest;
+import fi.haagahelia.CourseProject.web.YoutubeController;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -27,7 +27,7 @@ public class CourseProjectApplicationTests {
 	private UserController uController;
 
 	@Autowired
-	private RestControllerTest youtubeController;
+	private YoutubeController youtubeController;
 
 	// Smoke testing
 	@Test

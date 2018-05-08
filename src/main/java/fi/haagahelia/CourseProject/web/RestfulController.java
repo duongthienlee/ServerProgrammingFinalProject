@@ -41,4 +41,10 @@ public class RestfulController {
 		return (List<Artist>) aRepository.findAll();
 	}
 
+	// Restful service to find artist by id
+	@RequestMapping(value = "/artist/{id}", method = RequestMethod.GET)
+	public Optional<Artist> findArtistRest(@PathVariable("id") Long ID) {
+		return aRepository.findById(ID);
+	}
+
 }

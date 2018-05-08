@@ -34,6 +34,7 @@
 					<li><a sec:authorize="isAnonymous()" th:href="@{/login}"><button
 								class="btn-nav">Log In</button></a></li>
 
+					<!-- Display sign up when user have not logged in -->
 					<li><a sec:authorize="isAnonymous()" th:href="@{/signup}">
 							<button class="btn-signUp">Sign Up</button>
 

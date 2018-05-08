@@ -24,38 +24,45 @@
 		<div class="container">
 			<div class="row">
 				<div class="main_portfolio sections">
-					<table class="table">
-						<tr>
-							<th>Name</th>
-							<th>Country</th>
-							<th>Birthday</th>
-							<th>Age</th>
-							<th>Youtube Channel</th>
-							<th sec:authorize="hasAuthority('ROLE_ADMIN')"></th>
-							<th sec:authorize="hasAuthority('ROLE_ADMIN')"></th>
+					<div class="head_title text-center">
+						<h2>
+							Famous Guitarists
+							</h3>
+					</div>
+					<div class="table-responsive">
+						<table class="table table-hover  table-bordered">
+							<tr>
+								<th>Name</th>
+								<th>Country</th>
+								<th>Birthday</th>
+								<th>Age</th>
+								<th>Youtube Channel</th>
+								<th sec:authorize="hasAuthority('ROLE_ADMIN')"></th>
+								<th sec:authorize="hasAuthority('ROLE_ADMIN')"></th>
 
-						</tr>
-						<!-- th:with #calendars get current day minus subtring of birthday(year) to calculate the age -->
-						<tr th:each="artist : ${artists}"
-							th:with="result=${#calendars.format(#calendars.createNow(), 'yyyy')}- ${#strings.substring(artist.birthday,0,4)} ">
-							<td th:text="${artist.firstName} + ' ' + ${artist.lastName}"></td>
-							<td th:text="${artist.country}"></td>
-							<td th:text="${artist.birthday}"></td>
-							<td th:text="${result}"></td>
-							<td><a th:href="@{(${artist.youtubeChannel})}">Click to
-									the channel</a></td>
+							</tr>
+							<!-- th:with #calendars get current day minus subtring of birthday(year) to calculate the age -->
+							<tr th:each="artist : ${artists}"
+								th:with="result=${#calendars.format(#calendars.createNow(), 'yyyy')}- ${#strings.substring(artist.birthday,0,4)} ">
+								<td th:text="${artist.firstName} + ' ' + ${artist.lastName}"></td>
+								<td th:text="${artist.country}"></td>
+								<td th:text="${artist.birthday}"></td>
+								<td th:text="${result}"></td>
+								<td><a th:href="@{(${artist.youtubeChannel})}">Click to
+										the channel</a></td>
 
-							<td sec:authorize="hasAuthority('ROLE_ADMIN')"><a
-								th:href="@{/editArtist{id}(id=${artist.artistId})}"><button
-										class="btn-danger">Edit</button></a></td>
+								<td sec:authorize="hasAuthority('ROLE_ADMIN')"><a
+									th:href="@{/editArtist{id}(id=${artist.artistId})}"><button
+											class="btn-danger">Edit</button></a></td>
 
-							<td sec:authorize="hasAuthority('ROLE_ADMIN')"><a
-								th:href="@{/deleteArtist/{id}(id=${artist.artistId})}"><button
-										class="btn-danger">Delete</button></a></td>
+								<td sec:authorize="hasAuthority('ROLE_ADMIN')"><a
+									th:href="@{/deleteArtist/{id}(id=${artist.artistId})}"><button
+											class="btn-danger">Delete</button></a></td>
 
 
-						</tr>
-					</table>
+							</tr>
+						</table>
+					</div>
 					<a sec:authorize="hasAuthority('ROLE_ADMIN')" href="/addArtist"><button
 							class="btn">Add Artist</button></a>
 				</div>

@@ -23,13 +23,17 @@
 		<div class="container">
 			<div class="row">
 				<div class="main_portfolio sections">
-					<div class="text-center">
+					<div class="text-center" sec:authorize="isAnonymous()">
 						<h2>You need to login !</h2>
 						<div th:if="${param.error}">Invalid username and password.</div>
 						<div th:if="${param.logout}">You have been logged out.</div>
 					</div>
+					<div class="text-center" sec:authorize="isAuthenticated()">
+						<h2>You've already logged in</h2>
+					</div>
 
-					<form class="form-horizontal" th:action="@{/login}" method="post">
+					<form class="form-horizontal" sec:authorize="isAnonymous()"
+						th:action="@{/login}" method="post">
 						<div class="form-group">
 							<label class="control-label col-sm-4" for="username">Username:</label>
 							<div class="col-sm-4">
@@ -53,7 +57,7 @@
 						</div>
 
 					</form>
-					<div class="form-group">
+					<div class="form-group" sec:authorize="isAnonymous()">
 						<div class="col-sm-offset-4 col-sm-4">
 							<p>Don't have an account?</p>
 						</div>

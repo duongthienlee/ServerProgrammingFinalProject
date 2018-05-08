@@ -25,12 +25,6 @@
 	</properties>
 
 	<dependencies>
-		<dependency>
-			<groupId>org.postgresql</groupId>
-			<artifactId>postgresql</artifactId>
-			<scope>runtime</scope>
-		</dependency>
-		
 		<!-- Thymeleaf -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -57,16 +51,11 @@
 			<scope>test</scope>
 		</dependency>
 		
-		<!-- https://mvnrepository.com/artifact/com.h2database/h2 -->
+		<!-- Postgresql -->
 		<dependency>
-		 	<groupId>com.h2database</groupId>
-    			<artifactId>h2</artifactId>
-    			<scope>test</scope>
-		</dependency>
-		
-		<dependency>
-    			<groupId>org.hibernate</groupId>
-    			<artifactId>hibernate-entitymanager</artifactId>
+			<groupId>org.postgresql</groupId>
+			<artifactId>postgresql</artifactId>
+			<scope>runtime</scope>
 		</dependency>
 		
 		<!-- JPA -->
@@ -74,7 +63,6 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-jpa</artifactId>
 		</dependency>
-		
 		
 		<!-- Data Rest -->
 		<dependency>
@@ -94,9 +82,7 @@
 			<artifactId>thymeleaf-extras-springsecurity4</artifactId>
 		</dependency>
 		
-		
-		
-		<!--YOUTUBE API DEPENDENCIES SECTION-->
+		<!--                       YOUTUBE API DEPENDENCIES SECTION           -->
 		
 		<!-- Google API Services Youtube -->
 		<dependency>
@@ -121,6 +107,20 @@
 		</dependency>
 		
 		
+		
+		<!--                             Testing section                         -->
+		<!-- https://mvnrepository.com/artifact/com.h2database/h2 -->
+		<dependency>
+		 	<groupId>com.h2database</groupId>
+    			<artifactId>h2</artifactId>
+    			<scope>test</scope>
+		</dependency>
+		
+		<dependency>
+    			<groupId>org.hibernate</groupId>
+    			<artifactId>hibernate-entitymanager</artifactId>
+		</dependency>
+
 	</dependencies>
 
 	<build>
@@ -131,6 +131,5 @@
 			</plugin>
 		</plugins>
 	</build>
-
-
+	
 </project>

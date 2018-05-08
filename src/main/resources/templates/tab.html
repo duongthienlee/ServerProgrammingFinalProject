@@ -27,36 +27,37 @@
 					<div class="head_title text-center">
 						<h2>Explore Tab catalog</h2>
 					</div>
-					<table class="table">
-						<tr>
-							<th>Song</th>
-							<th>Artist</th>
-							<th>Rating</th>
-							<th>Type</th>
-							<th>Number of downloaded</th>
-							<th sec:authorize="hasAuthority('ROLE_ADMIN')"></th>
-							<th sec:authorize="hasAuthority('ROLE_ADMIN')"></th>
-						</tr>
+					<div class="table-responsive">
+						<table class="table table-hover  table-bordered">
+							<tr>
+								<th>Song</th>
+								<th>Artist</th>
+								<th>Rating</th>
+								<th>Type</th>
+								<th>Number of downloaded</th>
+								<th sec:authorize="hasAuthority('ROLE_ADMIN')"></th>
+								<th sec:authorize="hasAuthority('ROLE_ADMIN')"></th>
+							</tr>
 
-						<tr th:each="tab : ${tabs}">
-							<td><a th:href="@{(${tab.url})}"><span
-									th:text="${tab.song}"></span></a></td>
-							<td
-								th:text="${tab.artist.firstName} + ' ' +${tab.artist.lastName} "></td>
-							<td th:text="${tab.rating}"></td>
-							<td th:text="${tab.type}"></td>
-							<td th:text="${tab.downloaded}"></td>
+							<tr th:each="tab : ${tabs}">
+								<td><a th:href="@{(${tab.url})}"><span
+										th:text="${tab.song}"></span></a></td>
+								<td
+									th:text="${tab.artist.firstName} + ' ' +${tab.artist.lastName} "></td>
+								<td th:text="${tab.rating}"></td>
+								<td th:text="${tab.type}"></td>
+								<td th:text="${tab.downloaded}"></td>
 
-							<td sec:authorize="hasAuthority('ROLE_ADMIN')"><a
-								
-								th:href="@{/editTab{id}(id=${tab.ID})}"><button
-										class="btn-danger">Edit</button></a></td>
+								<td sec:authorize="hasAuthority('ROLE_ADMIN')"><a
+									th:href="@{/editTab{id}(id=${tab.ID})}"><button
+											class="btn-danger">Edit</button></a></td>
 
-							<td sec:authorize="hasAuthority('ROLE_ADMIN')"><a
-								th:href="@{/deleteTab/{id}(id=${tab.ID})}"
-								><button class="btn-danger">Delete</button></a></td>
-						</tr>
-					</table>
+								<td sec:authorize="hasAuthority('ROLE_ADMIN')"><a
+									th:href="@{/deleteTab/{id}(id=${tab.ID})}"><button
+											class="btn-danger">Delete</button></a></td>
+							</tr>
+						</table>
+					</div>
 					<a sec:authorize="hasAuthority('ROLE_ADMIN')" href="/addTab"><button
 							class="btn">Add Tab</button></a>
 				</div>

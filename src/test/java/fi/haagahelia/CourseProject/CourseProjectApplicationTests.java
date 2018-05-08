@@ -10,6 +10,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import fi.haagahelia.CourseProject.web.CRUDController;
 import fi.haagahelia.CourseProject.web.GeneralMappingController;
+import fi.haagahelia.CourseProject.web.RestfulController;
 import fi.haagahelia.CourseProject.web.UserController;
 import fi.haagahelia.CourseProject.web.YoutubeController;
 
@@ -29,6 +30,9 @@ public class CourseProjectApplicationTests {
 	@Autowired
 	private YoutubeController youtubeController;
 
+	@Autowired
+	private RestfulController restfulController;
+
 	// Smoke testing
 	@Test
 	public void contexLoads() throws Exception {
@@ -36,6 +40,7 @@ public class CourseProjectApplicationTests {
 		assertThat(gmController).isNotNull();
 		assertThat(uController).isNotNull();
 		assertThat(youtubeController).isNotNull();
+		assertThat(restfulController).isNotNull();
 	}
 
 }
